@@ -1,22 +1,86 @@
 ---
 const code = Astro.url.searchParams.get('code');
+const state = Astro.url.searchParams.get('state');
 ---
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>Authenticating...</title>
     <style>
-        body { background: #0A0A0A; color: #FFFFFF; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .card { background: #111; padding: 2rem; border: 1px solid #222; border-radius: 12px; text-align: center; max-width: 500px; }
-        .code { color: #F59E0B; font-family: monospace; word-break: break-all; margin: 1rem 0; background: #000; padding: 1rem; border-radius: 8px; }
+        body { background: #0A0A0A; color: #FFFFFF; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .card { background: #111; padding: 2.5rem; border: 1px solid #222; border-radius: 16px; text-align: center; max-width: 450px; width: 90%; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); transition: all 0.3s ease; }
+        .spinner { border: 3px solid rgba(245, 158, 11, 0.1); border-top: 3px solid #F59E0B; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 1.5rem; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        h1 { color: #F59E0B; font-size: 1.5rem; margin-bottom: 0.5rem; letter-spacing: -0.025em; }
+        p { color: #9CA3AF; line-height: 1.6; }
+        .success-icon { color: #10B981; font-size: 3rem; margin-bottom: 1rem; display: none; }
+        .error-icon { color: #EF4444; font-size: 3rem; margin-bottom: 1rem; display: none; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1 style="color: #F59E0B;">HANDSHAKE DETECTED</h1>
-        <p>The Gabbai has received your authorization code.</p>
-        <div class="code">{code}</div>
-        <p>Please copy this code and paste it back into our chat so I can finalize the connection to your estate.</p>
+    <div class="card" id="status-card">
+        <div id="loading-state">
+            <div class="spinner"></div>
+            <h1>HANDSHAKE IN PROGRESS</h1>
+            <p>Finalizing the connection to your estate...</p>
+        </div>
+
+        <div id="success-state" style="display: none;">
+            <div class="success-icon">✓</div>
+            <h1 style="color: #10B981;">CONNECTION SUCCESSFUL</h1>
+            <p>The Bezalel has secured the perimeter. Your Nylas account is now linked.</p>
+            <p style="font-size: 0.875rem; margin-top: 1.5rem; color: #6B7280;">You can close this window now.</p>
+        </div>
+
+        <div id="error-state" style="display: none;">
+            <div class="error-icon">✕</div>
+            <h1 style="color: #EF4444;">HANDSHAKE FAILED</h1>
+            <p id="error-message">Something went wrong during the exchange.</p>
+            <button onclick="window.location.reload()" style="margin-top: 1.5rem; background: #222; color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Retry</button>
+        </div>
     </div>
+
+    <script define:vars={{ code, state }}>
+        async function performExchange() {
+            if (!code) {
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('error-state').style.display = 'block';
+                document.getElementById('error-message').textContent = 'No authorization code found in the URL.';
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/nylas/exchange', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code, state })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    document.getElementById('loading-state').style.display = 'none';
+                    document.getElementById('success-state').style.display = 'block';
+                    document.getElementById('status-card').style.borderColor = '#064E3B';
+                    
+                    // Optional: Notify the parent/opener if this was a popup
+                    if (window.opener) {
+                        window.opener.postMessage({ type: 'NYLAS_CONNECTED', grantId: data.grant_id }, '*');
+                    }
+                } else {
+                    throw new Error(data.error || 'Exchange failed');
+                }
+            } catch (err) {
+                console.error('Handshake error:', err);
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('error-state').style.display = 'block';
+                document.getElementById('error-message').textContent = err.message;
+                document.getElementById('status-card').style.borderColor = '#7F1D1D';
+            }
+        }
+
+        // Start the exchange immediately
+        performExchange();
+    </script>
 </body>
 </html>
