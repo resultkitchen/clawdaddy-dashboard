@@ -8,15 +8,32 @@
     </div>
 
     <div class="bg-[#0A0A0A] border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+      <!-- Step 0: Email Capture -->
+      <div id="step-0" class="quiz-step">
+        <span class="text-[#F59E0B] font-mono text-sm mb-2 block">START HERE</span>
+        <h3 class="text-2xl font-bold text-white mb-8">What's your business email?</h3>
+        <div class="flex flex-col gap-4">
+          <input 
+            type="email" 
+            id="quiz-email" 
+            placeholder="name@company.com" 
+            class="w-full p-6 bg-white/5 border border-white/10 rounded-2xl text-white font-semibold focus:outline-none focus:border-[#F59E0B]/50 transition-all"
+          />
+          <button id="start-quiz" class="w-full p-6 bg-[#F59E0B] text-black font-bold rounded-2xl hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+            Continue
+          </button>
+        </div>
+      </div>
+
       <!-- Step 1: Business Type -->
-      <div id="step-1" class="quiz-step">
+      <div id="step-1" class="quiz-step hidden">
         <span class="text-[#F59E0B] font-mono text-sm mb-2 block">STEP 01/03</span>
         <h3 class="text-2xl font-bold text-white mb-8">What is your business type?</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button class="quiz-opt" data-next="2">E-commerce / Retail</button>
-          <button class="quiz-opt" data-next="2">Professional Services</button>
-          <button class="quiz-opt" data-next="2">Creative Agency</button>
-          <button class="quiz-opt" data-next="2">SaaS / Tech</button>
+          <button class="quiz-opt" data-key="businessType" data-val="E-commerce / Retail" data-next="2">E-commerce / Retail</button>
+          <button class="quiz-opt" data-key="businessType" data-val="Professional Services" data-next="2">Professional Services</button>
+          <button class="quiz-opt" data-key="businessType" data-val="Creative Agency" data-next="2">Creative Agency</button>
+          <button class="quiz-opt" data-key="businessType" data-val="SaaS / Tech" data-next="2">SaaS / Tech</button>
         </div>
       </div>
 
@@ -25,10 +42,10 @@
         <span class="text-[#F59E0B] font-mono text-sm mb-2 block">STEP 02/03</span>
         <h3 class="text-2xl font-bold text-white mb-8">What's your biggest bottleneck?</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button class="quiz-opt" data-next="3">Customer Support</button>
-          <button class="quiz-opt" data-next="3">Lead Generation</button>
-          <button class="quiz-opt" data-next="3">Social Media Growth</button>
-          <button class="quiz-opt" data-next="3">Operations Automation</button>
+          <button class="quiz-opt" data-key="priorities" data-val="Customer Support" data-next="3">Customer Support</button>
+          <button class="quiz-opt" data-key="priorities" data-val="Lead Generation" data-next="3">Lead Generation</button>
+          <button class="quiz-opt" data-key="priorities" data-val="Social Media Growth" data-next="3">Social Media Growth</button>
+          <button class="quiz-opt" data-key="priorities" data-val="Operations Automation" data-next="3">Operations Automation</button>
         </div>
       </div>
 
@@ -37,11 +54,17 @@
         <span class="text-[#F59E0B] font-mono text-sm mb-2 block">STEP 03/03</span>
         <h3 class="text-2xl font-bold text-white mb-8">What language does your workforce need?</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button class="quiz-opt" data-finish="true">English Only</button>
-          <button class="quiz-opt" data-finish="true">Spanish Only</button>
-          <button class="quiz-opt" data-finish="true">Bilingual (English & Spanish)</button>
-          <button class="quiz-opt" data-finish="true">Multilingual (Global Support)</button>
+          <button class="quiz-opt" data-key="language" data-val="English Only" data-finish="true">English Only</button>
+          <button class="quiz-opt" data-key="language" data-val="Spanish Only" data-finish="true">Spanish Only</button>
+          <button class="quiz-opt" data-key="language" data-val="Bilingual (English & Spanish)" data-finish="true">Bilingual (English & Spanish)</button>
+          <button class="quiz-opt" data-key="language" data-val="Multilingual (Global Support)" data-finish="true">Multilingual (Global Support)</button>
         </div>
+      </div>
+
+      <!-- Loading State -->
+      <div id="quiz-loading" class="quiz-step hidden text-center py-12">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#F59E0B] mx-auto mb-6"></div>
+        <h3 class="text-xl font-bold text-white">CALIBRATING YOUR CLAW...</h3>
       </div>
 
       <!-- Success State -->
@@ -68,18 +91,77 @@
 </style>
 
 <script>
-  document.querySelectorAll('.quiz-opt').forEach(button => {
-    button.addEventListener('click', () => {
-      const currentStep = button.closest('.quiz-step');
-      const nextStepId = button.getAttribute('data-next');
-      const isFinish = button.getAttribute('data-finish');
+  const quizData: any = {
+    email: '',
+    businessType: '',
+    priorities: '',
+    language: ''
+  };
 
-      currentStep.classList.add('hidden');
+  const pbUrl = 'http://localhost:8090'; 
+
+  const startBtn = document.getElementById('start-quiz');
+  const emailInput = document.getElementById('quiz-email') as HTMLInputElement;
+
+  startBtn?.addEventListener('click', () => {
+    const email = emailInput.value;
+    if (email && email.includes('@')) {
+      quizData.email = email;
+      document.getElementById('step-0')?.classList.add('hidden');
+      document.getElementById('step-1')?.classList.remove('hidden');
+    } else {
+      alert('Please enter a valid business email.');
+    }
+  });
+
+  document.querySelectorAll('.quiz-opt').forEach(button => {
+    button.addEventListener('click', async () => {
+      const btn = button as HTMLButtonElement;
+      const key = btn.getAttribute('data-key');
+      const val = btn.getAttribute('data-val');
+      const currentStep = btn.closest('.quiz-step');
+      const nextStepId = btn.getAttribute('data-next');
+      const isFinish = btn.getAttribute('data-finish');
+
+      if (key && val) {
+        quizData[key] = val;
+      }
+
+      currentStep?.classList.add('hidden');
 
       if (isFinish) {
-        document.getElementById('quiz-success').classList.remove('hidden');
+        document.getElementById('quiz-loading')?.classList.remove('hidden');
+        
+        try {
+          // Prepare payload for PocketBase schema: { email: string, quizData: json }
+          const payload = {
+            email: quizData.email,
+            quizData: {
+                businessType: quizData.businessType,
+                priorities: quizData.priorities,
+                language: quizData.language
+            }
+          };
+
+          const response = await fetch(`${pbUrl}/api/collections/leads/records`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            console.error('Failed to save lead');
+          }
+        } catch (error) {
+          console.error('Error submitting quiz:', error);
+        } finally {
+          document.getElementById('quiz-loading')?.classList.add('hidden');
+          document.getElementById('quiz-success')?.classList.remove('hidden');
+        }
       } else if (nextStepId) {
-        document.getElementById(`step-${nextStepId}`).classList.remove('hidden');
+        document.getElementById(`step-${nextStepId}`)?.classList.remove('hidden');
       }
     });
   });
