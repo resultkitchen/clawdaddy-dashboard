@@ -1,44 +1,101 @@
 ---
-title: "ClawDaddy Audit Report"
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Quiz from '../components/Quiz.astro';
+import Pricing from '../components/Pricing.astro';
+
+const title = "ClawDaddy | Your AI Workforce. From Your Pocket.";
 ---
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
-		<title>ClawDaddy Audit</title>
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+		<script src="https://cdn.tailwindcss.com"></script>
 		<style>
-			body { background: #0A0A0A; color: #FFFFFF; font-family: sans-serif; padding: 2rem; line-height: 1.6; }
-			h1 { color: #F59E0B; border-bottom: 2px solid #222; padding-bottom: 0.5rem; }
-			pre { background: #111; padding: 1rem; border: 1px solid #222; border-radius: 8px; overflow-x: auto; color: #999; }
-			.tag { color: #F59E0B; font-weight: bold; }
+			:root {
+				--primaryAccent: #F59E0B;
+				--bgDark: #0A0A0A;
+			}
+			body {
+				background-color: var(--bgDark);
+				font-family: 'Inter', sans-serif;
+			}
+			.font-black { font-weight: 900; }
 		</style>
 	</head>
-	<body>
-		<h1>ClawDaddy Alpha Audit</h1>
-		<p><span class="tag">Status:</span> 2026-02-18 Audit Complete</p>
-		<pre>
-# ClawDaddy Technical Audit & Analysis Report
+	<body class="text-white selection:bg-[#F59E0B] selection:text-black">
+		<Header />
+		
+		<main>
+			<Hero />
+			
+			<!-- BILINGUAL STORY SECTION -->
+			<section class="py-24 bg-[#0A0A0A] border-t border-white/5 overflow-hidden">
+				<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+					<div>
+						<h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-8 leading-none">
+							BILINGUAL BY BIRTH. <br/>
+							<span class="text-[#F59E0B]">NATIVE BY DESIGN.</span>
+						</h2>
+						<p class="text-xl text-zinc-400 font-light leading-relaxed mb-8">
+							The world is too big for one language. ClawDaddy agents are trained on massive datasets in both <strong>English and Spanish</strong>. They don't just translate; they understand cultural nuance, tone, and slang.
+						</p>
+						<div class="flex items-center gap-4">
+							<div class="px-4 py-2 rounded-lg bg-zinc-900 border border-white/10 flex items-center gap-2">
+								<span class="text-2xl">🇺🇸</span>
+								<span class="text-sm font-bold uppercase tracking-widest text-zinc-400">Perfect English</span>
+							</div>
+							<div class="px-4 py-2 rounded-lg bg-zinc-900 border border-white/10 flex items-center gap-2">
+								<span class="text-2xl">🇪🇸</span>
+								<span class="text-sm font-bold uppercase tracking-widest text-zinc-400">Español Nativo</span>
+							</div>
+						</div>
+					</div>
+					<div class="relative">
+						<div class="absolute -inset-4 bg-[#F59E0B]/10 blur-3xl rounded-full -z-10"></div>
+						<div class="bg-zinc-900/50 border border-white/10 p-8 rounded-3xl backdrop-blur-sm">
+							<div class="space-y-4 font-mono text-sm">
+								<div class="flex gap-3">
+									<span class="text-[#F59E0B]">AGENT:</span>
+									<span class="text-zinc-300">"El cliente está preguntando por el tiempo de entrega en Madrid..."</span>
+								</div>
+								<div class="flex gap-3">
+									<span class="text-[#F59E0B]">SYSTEM:</span>
+									<span class="text-zinc-500">Cross-referencing logistics DB...</span>
+								</div>
+								<div class="flex gap-3">
+									<span class="text-[#F59E0B]">AGENT:</span>
+									<span class="text-white">"¡Hola! Tu pedido llegará el martes. ¿Necesitas ayuda con algo más?"</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-## 1. OAuth Automation
-- **Primary Recommendation**: Nylas (Unified API)
-- **Persona Fit**: Neural API for sentiment/clean-text.
+			<Quiz />
+			<Pricing />
+		</main>
 
-## 2. ZeroClaw Integration
-- **Feasibility**: Validated. Rust core is ideal for multi-tenancy.
-- **Verdict**: High-trust, low-footprint.
-
-## 3. Ghost Mode Reliability
-- **Stack**: DataImpulse + Playwright-Stealth + Xvfb.
-- **Fix**: Simulate real display environment.
-
-## 4. Unit Economics
-- **Target**: $5-12/mo COGS.
-- **Strategy**: Gemini 3 Flash Caching (90% discount).
-
-## 5. Infrastructure
-- **Pivot**: Fly.io (Firecracker microVMs) for sub-second cold starts.
-- **Cost**: $0 for idle agents.
-		</pre>
+		<footer class="py-20 bg-[#0F0F0F] border-t border-white/5">
+			<div class="max-w-7xl mx-auto px-6 text-center">
+				<div class="w-12 h-12 bg-[#F59E0B] rounded-xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-[#F59E0B]/20">
+					<span class="text-black font-black text-2xl">C</span>
+				</div>
+				<p class="text-zinc-500 text-sm mb-4">© 2026 ClawDaddy Operations. Built for the Sovereign Individual.</p>
+				<div class="flex items-center justify-center gap-6 text-zinc-600 text-xs uppercase tracking-widest font-bold">
+					<a href="#" class="hover:text-white transition-colors">Privacy</a>
+					<a href="#" class="hover:text-white transition-colors">Terms</a>
+					<a href="#" class="hover:text-white transition-colors">GitHub</a>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>

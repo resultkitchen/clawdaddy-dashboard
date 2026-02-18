@@ -98,6 +98,7 @@
     language: ''
   };
 
+  // Demo Mode: The quiz will log data to the console and succeed even if the backend is unreachable.
   const pbUrl = 'http://localhost:8090'; 
 
   const startBtn = document.getElementById('start-quiz');
@@ -132,6 +133,8 @@
       if (isFinish) {
         document.getElementById('quiz-loading')?.classList.remove('hidden');
         
+        console.log('[Demo Mode] Quiz Submitted:', quizData);
+
         try {
           // Prepare payload for PocketBase schema: { email: string, quizData: json }
           const payload = {
@@ -152,13 +155,16 @@
           });
 
           if (!response.ok) {
-            console.error('Failed to save lead');
+            console.warn('[Demo Mode] Backend submission skipped or failed. Proceeding to success state.');
           }
         } catch (error) {
-          console.error('Error submitting quiz:', error);
+          console.warn('[Demo Mode] Network error. Proceeding to success state.');
         } finally {
-          document.getElementById('quiz-loading')?.classList.add('hidden');
-          document.getElementById('quiz-success')?.classList.remove('hidden');
+          // Delay briefly for realism
+          setTimeout(() => {
+            document.getElementById('quiz-loading')?.classList.add('hidden');
+            document.getElementById('quiz-success')?.classList.remove('hidden');
+          }, 800);
         }
       } else if (nextStepId) {
         document.getElementById(`step-${nextStepId}`)?.classList.remove('hidden');
