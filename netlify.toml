@@ -1,0 +1,3 @@
+[build]
+  command = "echo 'No build step required for raw Astro/HTML' && mkdir -p dist && cp src/pages/index.astro dist/index.html"
+  publish = "dist"
