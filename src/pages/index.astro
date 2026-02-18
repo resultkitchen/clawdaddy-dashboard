@@ -1,7 +1,10 @@
 ---
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Quiz from '../components/Quiz.astro';
+import Pricing from '../components/Pricing.astro';
+
 const title = "ClawDaddy | Your AI Workforce. From Your Pocket.";
-const primaryAccent = "#F59E0B";
-const bgDark = "#0A0A0A";
 ---
 
 <html lang="en">
@@ -13,166 +16,85 @@ const bgDark = "#0A0A0A";
 		<title>{title}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
-		<style define:vars={{ primaryAccent, bgDark }}>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
 			:root {
-				--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-			}
-			* {
-				box-sizing: border-box;
-				margin: 0;
-				padding: 0;
+				--primaryAccent: #F59E0B;
+				--bgDark: #0A0A0A;
 			}
 			body {
 				background-color: var(--bgDark);
-				color: #FFFFFF;
-				font-family: var(--font-sans);
-				line-height: 1.6;
-				overflow-x: hidden;
+				font-family: 'Inter', sans-serif;
 			}
-			.container {
-				max-width: 1100px;
-				margin: 0 auto;
-				padding: 0 2rem;
-			}
-			
-			/* Hero Section */
-			header {
-				padding: 8rem 0 4rem;
-				text-align: center;
-				background: radial-gradient(circle at 50% -20%, #1a1a1a 0%, var(--bgDark) 70%);
-			}
-			h1 {
-				font-size: clamp(2.5rem, 8vw, 4.5rem);
-				font-weight: 800;
-				letter-spacing: -0.02em;
-				line-height: 1.1;
-				margin-bottom: 1.5rem;
-			}
-			.gradient-text {
-				background: linear-gradient(to bottom right, #FFFFFF 30%, var(--primaryAccent));
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
-			.sub-headline {
-				font-size: clamp(1.1rem, 3vw, 1.5rem);
-				color: #A1A1AA;
-				max-width: 700px;
-				margin: 0 auto 2.5rem;
-				font-weight: 300;
-			}
-			.cta-button {
-				display: inline-block;
-				background-color: var(--primaryAccent);
-				color: #000;
-				padding: 1rem 2.5rem;
-				border-radius: 9999px;
-				font-weight: 700;
-				text-decoration: none;
-				transition: transform 0.2s, box-shadow 0.2s;
-				font-size: 1.1rem;
-			}
-			.cta-button:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 10px 20px -10px var(--primaryAccent);
-			}
-
-			/* Pillars Section */
-			.pillars {
-				padding: 6rem 0;
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 2rem;
-			}
-			.card {
-				background: #111;
-				border: 1px solid #222;
-				padding: 2.5rem;
-				border-radius: 24px;
-				transition: border-color 0.3s;
-			}
-			.card:hover {
-				border-color: var(--primaryAccent);
-			}
-			.card h3 {
-				color: var(--primaryAccent);
-				font-size: 1.5rem;
-				margin-bottom: 1rem;
-				font-weight: 700;
-			}
-			.card p {
-				color: #A1A1AA;
-			}
-
-			/* Bilingual Focus */
-			.bilingual {
-				text-align: center;
-				padding: 4rem 0;
-				border-top: 1px solid #1a1a1a;
-			}
-			.lang-badge {
-				display: inline-flex;
-				align-items: center;
-				gap: 0.5rem;
-				background: #1a1a1a;
-				padding: 0.5rem 1rem;
-				border-radius: 9999px;
-				font-size: 0.9rem;
-				color: #D4D4D8;
-				border: 1px solid #333;
-			}
-
-			footer {
-				text-align: center;
-				padding: 4rem 0;
-				color: #52525B;
-				font-size: 0.9rem;
-			}
-
-			@media (max-width: 768px) {
-				header { padding: 4rem 0 2rem; }
-				.pillars { padding: 3rem 0; }
-			}
+			.font-black { font-weight: 900; }
 		</style>
 	</head>
-	<body>
-		<header>
-			<div class="container">
-				<div class="lang-badge">
-					<span>🇺🇸 English</span> • <span>🇪🇸 Español Native Support</span>
-				</div>
-				<h1>Your AI Workforce. <br/><span class="gradient-text">From Your Pocket.</span></h1>
-				<p class="sub-headline">
-					Autonomous agents that manage your inbox, social presence, and digital operations while you run your business.
-				</p>
-				<a href="#" class="cta-button">Deploy Your Agent</a>
-			</div>
-		</header>
-
-		<main class="container">
-			<section class="pillars">
-				<div class="card">
-					<h3>Inbox Management</h3>
-					<p>Triage, draft, and respond. Our agents learn your voice to handle high-volume communications across email and messaging platforms with surgical precision.</p>
-				</div>
-				<div class="card">
-					<h3>Social Stealth</h3>
-					<p>Ghost Mode activated. Maintain an active, influential social presence without ever opening an app. Autonomous engagement that looks and feels human.</p>
-				</div>
-				<div class="card">
-					<h3>Automated Web Presence</h3>
-					<p>From landing pages to dynamic content updates, ClawDaddy keeps your digital storefront evolving while you focus on the core product.</p>
+	<body class="text-white selection:bg-[#F59E0B] selection:text-black">
+		<Header />
+		
+		<main>
+			<Hero />
+			
+			<!-- BILINGUAL STORY SECTION -->
+			<section class="py-24 bg-[#0A0A0A] border-t border-white/5 overflow-hidden">
+				<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+					<div>
+						<h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-8 leading-none">
+							BILINGUAL BY BIRTH. <br/>
+							<span class="text-[#F59E0B]">NATIVE BY DESIGN.</span>
+						</h2>
+						<p class="text-xl text-zinc-400 font-light leading-relaxed mb-8">
+							The world is too big for one language. ClawDaddy agents are trained on massive datasets in both <strong>English and Spanish</strong>. They don't just translate; they understand cultural nuance, tone, and slang.
+						</p>
+						<div class="flex items-center gap-4">
+							<div class="px-4 py-2 rounded-lg bg-zinc-900 border border-white/10 flex items-center gap-2">
+								<span class="text-2xl">🇺🇸</span>
+								<span class="text-sm font-bold uppercase tracking-widest text-zinc-400">Perfect English</span>
+							</div>
+							<div class="px-4 py-2 rounded-lg bg-zinc-900 border border-white/10 flex items-center gap-2">
+								<span class="text-2xl">🇪🇸</span>
+								<span class="text-sm font-bold uppercase tracking-widest text-zinc-400">Español Nativo</span>
+							</div>
+						</div>
+					</div>
+					<div class="relative">
+						<div class="absolute -inset-4 bg-[#F59E0B]/10 blur-3xl rounded-full -z-10"></div>
+						<div class="bg-zinc-900/50 border border-white/10 p-8 rounded-3xl backdrop-blur-sm">
+							<div class="space-y-4 font-mono text-sm">
+								<div class="flex gap-3">
+									<span class="text-[#F59E0B]">AGENT:</span>
+									<span class="text-zinc-300">"El cliente está preguntando por el tiempo de entrega en Madrid..."</span>
+								</div>
+								<div class="flex gap-3">
+									<span class="text-[#F59E0B]">SYSTEM:</span>
+									<span class="text-zinc-500">Cross-referencing logistics DB...</span>
+								</div>
+								<div class="flex gap-3">
+									<span class="text-[#F59E0B]">AGENT:</span>
+									<span class="text-white">"¡Hola! Tu pedido llegará el martes. ¿Necesitas ayuda con algo más?"</span>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
-			<section class="bilingual">
-				<p>Global operations by default. Our agents are natively bilingual in <strong>English</strong> and <strong>Spanish</strong>, ensuring your business never misses a connection.</p>
-			</section>
+			<Quiz />
+			<Pricing />
 		</main>
 
-		<footer>
-			<div class="container">
-				&copy; 2026 ClawDaddy Operations. Built for the Sovereign Individual.
+		<footer class="py-20 bg-[#0F0F0F] border-t border-white/5">
+			<div class="max-w-7xl mx-auto px-6 text-center">
+				<div class="w-12 h-12 bg-[#F59E0B] rounded-xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-[#F59E0B]/20">
+					<span class="text-black font-black text-2xl">C</span>
+				</div>
+				<p class="text-zinc-500 text-sm mb-4">© 2026 ClawDaddy Operations. Built for the Sovereign Individual.</p>
+				<div class="flex items-center justify-center gap-6 text-zinc-600 text-xs uppercase tracking-widest font-bold">
+					<a href="#" class="hover:text-white transition-colors">Privacy</a>
+					<a href="#" class="hover:text-white transition-colors">Terms</a>
+					<a href="#" class="hover:text-white transition-colors">GitHub</a>
+				</div>
 			</div>
 		</footer>
 	</body>

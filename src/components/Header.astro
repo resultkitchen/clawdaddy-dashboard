@@ -1,0 +1,26 @@
+---
+const { title = "ClawDaddy" } = Astro.props;
+---
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#0A0A0A]/80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 bg-[#F59E0B] rounded-lg flex items-center justify-center">
+        <span class="text-black font-black text-xl">C</span>
+      </div>
+      <span class="text-white font-bold text-xl tracking-tight">{title}</span>
+    </div>
+    
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#features" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Features</a>
+      <a href="#pricing" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Pricing</a>
+      <a href="/login" class="px-5 py-2.5 rounded-full border border-white/10 text-white hover:bg-white/5 transition-all text-sm font-semibold">Login</a>
+      <a href="#quiz" class="px-5 py-2.5 rounded-full bg-[#F59E0B] text-black hover:bg-[#F59E0B]/90 transition-all text-sm font-bold">Get Started</a>
+    </div>
+
+    <button class="md:hidden text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m7 6H7" />
+      </svg>
+    </button>
+  </div>
+</nav>

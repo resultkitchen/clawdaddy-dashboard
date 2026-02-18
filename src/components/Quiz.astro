@@ -1,0 +1,86 @@
+---
+---
+<section id="quiz" class="py-24 bg-[#0F0F0F] border-y border-white/5">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight mb-4">PERSONALIZE YOUR AGENT</h2>
+      <p class="text-zinc-500">Answer 3 questions to see how ClawDaddy transforms your business.</p>
+    </div>
+
+    <div class="bg-[#0A0A0A] border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+      <!-- Step 1: Business Type -->
+      <div id="step-1" class="quiz-step">
+        <span class="text-[#F59E0B] font-mono text-sm mb-2 block">STEP 01/03</span>
+        <h3 class="text-2xl font-bold text-white mb-8">What is your business type?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <button class="quiz-opt" data-next="2">E-commerce / Retail</button>
+          <button class="quiz-opt" data-next="2">Professional Services</button>
+          <button class="quiz-opt" data-next="2">Creative Agency</button>
+          <button class="quiz-opt" data-next="2">SaaS / Tech</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Priorities -->
+      <div id="step-2" class="quiz-step hidden">
+        <span class="text-[#F59E0B] font-mono text-sm mb-2 block">STEP 02/03</span>
+        <h3 class="text-2xl font-bold text-white mb-8">What's your biggest bottleneck?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <button class="quiz-opt" data-next="3">Customer Support</button>
+          <button class="quiz-opt" data-next="3">Lead Generation</button>
+          <button class="quiz-opt" data-next="3">Social Media Growth</button>
+          <button class="quiz-opt" data-next="3">Operations Automation</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Language -->
+      <div id="step-3" class="quiz-step hidden">
+        <span class="text-[#F59E0B] font-mono text-sm mb-2 block">STEP 03/03</span>
+        <h3 class="text-2xl font-bold text-white mb-8">What language does your workforce need?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <button class="quiz-opt" data-finish="true">English Only</button>
+          <button class="quiz-opt" data-finish="true">Spanish Only</button>
+          <button class="quiz-opt" data-finish="true">Bilingual (English & Spanish)</button>
+          <button class="quiz-opt" data-finish="true">Multilingual (Global Support)</button>
+        </div>
+      </div>
+
+      <!-- Success State -->
+      <div id="quiz-success" class="quiz-step hidden text-center py-8">
+        <div class="w-20 h-20 bg-[#F59E0B] rounded-full flex items-center justify-center mx-auto mb-6">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="text-3xl font-black text-white mb-4">WORKFORCE CALIBRATED</h3>
+        <p class="text-zinc-400 mb-8 leading-relaxed">Your custom agent configuration is ready. Claim your 'Claw' status today and activate your autonomous workforce.</p>
+        <a href="#pricing" class="inline-block px-10 py-4 rounded-full bg-[#F59E0B] text-black font-bold text-lg hover:scale-105 transition-all">
+          View My Plan
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .quiz-opt {
+    @apply w-full p-6 text-left border border-white/10 rounded-2xl text-white font-semibold transition-all hover:bg-white/5 hover:border-[#F59E0B]/50;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.quiz-opt').forEach(button => {
+    button.addEventListener('click', () => {
+      const currentStep = button.closest('.quiz-step');
+      const nextStepId = button.getAttribute('data-next');
+      const isFinish = button.getAttribute('data-finish');
+
+      currentStep.classList.add('hidden');
+
+      if (isFinish) {
+        document.getElementById('quiz-success').classList.remove('hidden');
+      } else if (nextStepId) {
+        document.getElementById(`step-${nextStepId}`).classList.remove('hidden');
+      }
+    });
+  });
+</script>

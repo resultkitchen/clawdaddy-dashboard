@@ -1,0 +1,73 @@
+---
+const tiers = [
+  {
+    name: 'Claw',
+    price: '29',
+    description: 'Perfect for solos starting their AI journey.',
+    features: ['1 Autonomous Agent', 'Inbox Triage (EN/ES)', '100 Tasks/mo', 'Mobile Dashboard'],
+    cta: 'Get Clawed',
+    popular: false
+  },
+  {
+    name: 'Daddy',
+    price: '59',
+    description: 'Scaling operations for serious builders.',
+    features: ['3 Autonomous Agents', 'Social Media Stealth', 'Unlimited Tasks', 'Priority Response'],
+    cta: 'Start Scaling',
+    popular: true
+  },
+  {
+    name: 'Big Daddy',
+    price: '119',
+    description: 'Full-scale AI workforce for enterprises.',
+    features: ['Unlimited Agents', 'Custom Workflow Design', 'API Access', '24/7 Human-in-the-loop'],
+    cta: 'The Full Daddy',
+    popular: false
+  }
+];
+---
+<section id="pricing" class="py-24 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-4 uppercase">TRANSPARENT PRICING.</h2>
+      <p class="text-zinc-500 max-w-xl mx-auto">Choose the scale of your digital empire. No hidden fees. Just pure execution.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {tiers.map((tier) => (
+        <div class={`relative p-8 rounded-3xl border transition-all duration-300 ${tier.popular ? 'bg-[#111] border-[#F59E0B] scale-105 z-10' : 'bg-[#0F0F0F] border-white/5 hover:border-white/10'}`}>
+          {tier.popular && (
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#F59E0B] text-black text-[10px] font-black uppercase tracking-widest">
+              Most Popular
+            </div>
+          )}
+          
+          <div class="mb-8">
+            <h3 class="text-2xl font-bold text-white mb-2">{tier.name}</h3>
+            <p class="text-zinc-500 text-sm">{tier.description}</p>
+          </div>
+
+          <div class="mb-8 flex items-baseline gap-1">
+            <span class="text-5xl font-black text-white">${tier.price}</span>
+            <span class="text-zinc-500 text-sm">/month</span>
+          </div>
+
+          <ul class="mb-10 space-y-4">
+            {tier.features.map((feature) => (
+              <li class="flex items-center gap-3 text-zinc-300 text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <a href="#" class={`block w-full py-4 rounded-2xl text-center font-bold transition-all ${tier.popular ? 'bg-[#F59E0B] text-black hover:scale-[1.02]' : 'bg-white/5 text-white hover:bg-white/10'}`}>
+            {tier.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
