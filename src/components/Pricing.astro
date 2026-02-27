@@ -5,7 +5,7 @@ const tiers = [
     price: '29',
     description: 'Perfect for solos starting their AI journey.',
     features: ['1 Autonomous Agent', 'Inbox Triage (EN/ES)', '100 Tasks/mo', 'Mobile Dashboard'],
-    cta: 'Get Clawed',
+    cta: 'Join Waitlist',
     popular: false
   },
   {
@@ -13,7 +13,7 @@ const tiers = [
     price: '59',
     description: 'Scaling operations for serious builders.',
     features: ['3 Autonomous Agents', 'Social Media Stealth', 'Unlimited Tasks', 'Priority Response'],
-    cta: 'Start Scaling',
+    cta: 'Join Waitlist',
     popular: true
   },
   {
@@ -21,7 +21,7 @@ const tiers = [
     price: '119',
     description: 'Full-scale AI workforce for enterprises.',
     features: ['Unlimited Agents', 'Custom Workflow Design', 'API Access', '24/7 Human-in-the-loop'],
-    cta: 'The Full Daddy',
+    cta: 'Join Waitlist',
     popular: false
   }
 ];
@@ -63,7 +63,7 @@ const tiers = [
             ))}
           </ul>
 
-          <a href="#" class={`block w-full py-4 rounded-2xl text-center font-bold transition-all ${tier.popular ? 'bg-[#F59E0B] text-black hover:scale-[1.02]' : 'bg-white/5 text-white hover:bg-white/10'}`}>
+          <a href="#quiz" class={`block w-full py-4 rounded-2xl text-center font-bold transition-all ${tier.popular ? 'bg-[#F59E0B] text-black hover:scale-[1.02]' : 'bg-white/5 text-white hover:bg-white/10'}`}>
             {tier.cta}
           </a>
         </div>
