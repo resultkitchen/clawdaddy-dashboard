@@ -3,90 +3,141 @@
 <section id="quiz" class="py-24 bg-[#0F0F0F] border-y border-white/5">
   <div class="max-w-3xl mx-auto px-6">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight mb-4">PERSONALIZE YOUR AGENT</h2>
-      <p class="text-zinc-500">Answer 3 questions to see how ClawDaddy transforms your business.</p>
+      <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight mb-4" data-i18n="quiz.h2">YOUR FREE AI PLAN</h2>
+      <p class="text-zinc-500" data-i18n="quiz.sub">5 quick questions. Personalized AI plan. Takes 30 seconds.</p>
     </div>
 
     <div class="bg-[#0A0A0A] border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
 
       <!-- Hidden Netlify Form -->
-      <form id="waitlist-form" name="waitlist" method="POST" data-netlify="true" class="hidden">
-        <input type="hidden" name="form-name" value="waitlist" />
+      <form id="makeover-form" name="makeover-plan" method="POST" data-netlify="true" class="hidden">
+        <input type="hidden" name="form-name" value="makeover-plan" />
         <input type="hidden" name="email" id="form-email" />
-        <input type="hidden" name="businessType" id="form-businessType" />
-        <input type="hidden" name="priorities" id="form-priorities" />
+        <input type="hidden" name="role" id="form-role" />
+        <input type="hidden" name="bottleneck" id="form-bottleneck" />
+        <input type="hidden" name="hoursWasted" id="form-hoursWasted" />
+        <input type="hidden" name="spanishMarket" id="form-spanishMarket" />
+        <input type="hidden" name="goal" id="form-goal" />
         <input type="hidden" name="language" id="form-language" />
       </form>
 
+      <!-- Progress bar -->
+      <div class="mb-8" id="quiz-progress-wrap">
+        <div class="h-1 bg-white/5 rounded-full overflow-hidden">
+          <div id="quiz-progress-bar" class="h-full bg-[#F59E0B] rounded-full transition-all duration-500" style="width: 0%"></div>
+        </div>
+      </div>
+
       <!-- Step 0: Email Capture -->
       <div id="step-0" class="quiz-step">
-        <span class="text-[#F59E0B] font-mono text-sm mb-2 block">START HERE</span>
-        <h3 class="text-2xl font-bold text-white mb-8">What's your business email?</h3>
+        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.start">START HERE</span>
+        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.email.q">What's your email?</h3>
         <div class="flex flex-col gap-4">
           <input
             type="email"
             id="quiz-email"
-            placeholder="name@company.com"
+            placeholder="you@email.com"
+            data-i18n-placeholder="quiz.email.placeholder"
             class="w-full p-6 bg-white/5 border border-white/10 rounded-2xl text-white font-semibold focus:outline-none focus:border-[#F59E0B]/50 transition-all"
           />
-          <button id="start-quiz" class="w-full p-6 bg-[#F59E0B] text-black font-bold rounded-2xl hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+          <button id="start-quiz" class="w-full p-6 bg-[#F59E0B] text-black font-bold rounded-2xl hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed" data-i18n="quiz.email.continue">
             Continue
           </button>
         </div>
       </div>
 
-      <!-- Step 1: Business Type -->
+      <!-- Step 1: Role -->
       <div id="step-1" class="quiz-step hidden">
-        <span class="text-[#F59E0B] font-mono text-sm mb-2 block">STEP 01/03</span>
-        <h3 class="text-2xl font-bold text-white mb-8">What is your business type?</h3>
+        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.step.1of5">STEP 01/05</span>
+        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.role.q">What best describes you?</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button class="quiz-opt" data-key="businessType" data-val="E-commerce / Retail" data-next="2">E-commerce / Retail</button>
-          <button class="quiz-opt" data-key="businessType" data-val="Professional Services" data-next="2">Professional Services</button>
-          <button class="quiz-opt" data-key="businessType" data-val="Creative Agency" data-next="2">Creative Agency</button>
-          <button class="quiz-opt" data-key="businessType" data-val="SaaS / Tech" data-next="2">SaaS / Tech</button>
+          <button class="quiz-opt" data-key="role" data-val="Business or side hustle" data-next="2"><span data-i18n="quiz.role.o1">I run a business or side hustle</span></button>
+          <button class="quiz-opt" data-key="role" data-val="Freelance or creator" data-next="2"><span data-i18n="quiz.role.o2">I freelance or create content</span></button>
+          <button class="quiz-opt" data-key="role" data-val="9-to-5 professional" data-next="2"><span data-i18n="quiz.role.o3">I work a 9-to-5</span></button>
+          <button class="quiz-opt" data-key="role" data-val="Juggling everything" data-next="2"><span data-i18n="quiz.role.o4">I'm juggling everything</span></button>
         </div>
       </div>
 
-      <!-- Step 2: Priorities -->
+      <!-- Step 2: Bottleneck -->
       <div id="step-2" class="quiz-step hidden">
-        <span class="text-[#F59E0B] font-mono text-sm mb-2 block">STEP 02/03</span>
-        <h3 class="text-2xl font-bold text-white mb-8">What's your biggest bottleneck?</h3>
+        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.step.2of5">STEP 02/05</span>
+        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.bottleneck.q">What drains your time the most?</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button class="quiz-opt" data-key="priorities" data-val="Customer Support" data-next="3">Customer Support</button>
-          <button class="quiz-opt" data-key="priorities" data-val="Lead Generation" data-next="3">Lead Generation</button>
-          <button class="quiz-opt" data-key="priorities" data-val="Social Media Growth" data-next="3">Social Media Growth</button>
-          <button class="quiz-opt" data-key="priorities" data-val="Operations Automation" data-next="3">Operations Automation</button>
+          <button class="quiz-opt" data-key="bottleneck" data-val="Email & messages" data-next="3"><span data-i18n="quiz.bottleneck.o1">Email & messages</span></button>
+          <button class="quiz-opt" data-key="bottleneck" data-val="Research & learning" data-next="3"><span data-i18n="quiz.bottleneck.o2">Research & learning</span></button>
+          <button class="quiz-opt" data-key="bottleneck" data-val="Planning & scheduling" data-next="3"><span data-i18n="quiz.bottleneck.o3">Planning & scheduling</span></button>
+          <button class="quiz-opt" data-key="bottleneck" data-val="Repetitive busywork" data-next="3"><span data-i18n="quiz.bottleneck.o4">Repetitive busywork</span></button>
         </div>
       </div>
 
-      <!-- Step 3: Language -->
+      <!-- Step 3: Hours Wasted -->
       <div id="step-3" class="quiz-step hidden">
-        <span class="text-[#F59E0B] font-mono text-sm mb-2 block">STEP 03/03</span>
-        <h3 class="text-2xl font-bold text-white mb-8">What language does your workforce need?</h3>
+        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.step.3of5">STEP 03/05</span>
+        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.hours.q">How many hours a week do you lose to stuff AI could do?</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button class="quiz-opt" data-key="language" data-val="English Only" data-finish="true">English Only</button>
-          <button class="quiz-opt" data-key="language" data-val="Spanish Only" data-finish="true">Spanish Only</button>
-          <button class="quiz-opt" data-key="language" data-val="Bilingual (English & Spanish)" data-finish="true">Bilingual (English & Spanish)</button>
-          <button class="quiz-opt" data-key="language" data-val="Multilingual (Global Support)" data-finish="true">Multilingual (Global Support)</button>
+          <button class="quiz-opt" data-key="hoursWasted" data-val="1-5 hours" data-next="4"><span data-i18n="quiz.hours.o1">1–5 hours</span></button>
+          <button class="quiz-opt" data-key="hoursWasted" data-val="5-10 hours" data-next="4"><span data-i18n="quiz.hours.o2">5–10 hours</span></button>
+          <button class="quiz-opt" data-key="hoursWasted" data-val="10-20 hours" data-next="4"><span data-i18n="quiz.hours.o3">10–20 hours</span></button>
+          <button class="quiz-opt" data-key="hoursWasted" data-val="20+ hours" data-next="4"><span data-i18n="quiz.hours.o4">20+ hours</span></button>
+        </div>
+      </div>
+
+      <!-- Step 4: Spanish -->
+      <div id="step-4" class="quiz-step hidden">
+        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.step.4of5">STEP 04/05</span>
+        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.spanish.q">Do you need Spanish?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <button class="quiz-opt" data-key="spanishMarket" data-val="Yes daily" data-next="5"><span data-i18n="quiz.spanish.o1">Yes, I use it daily</span></button>
+          <button class="quiz-opt" data-key="spanishMarket" data-val="Sometimes" data-next="5"><span data-i18n="quiz.spanish.o2">Sometimes</span></button>
+          <button class="quiz-opt" data-key="spanishMarket" data-val="Want to expand" data-next="5"><span data-i18n="quiz.spanish.o3">I want to learn / expand</span></button>
+          <button class="quiz-opt" data-key="spanishMarket" data-val="English only" data-next="5"><span data-i18n="quiz.spanish.o4">English only is fine</span></button>
+        </div>
+      </div>
+
+      <!-- Step 5: Goal -->
+      <div id="step-5" class="quiz-step hidden">
+        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.step.5of5">STEP 05/05</span>
+        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.goal.q">What would you do with 20 extra hours a week?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <button class="quiz-opt" data-key="goal" data-val="Make more money" data-finish="true"><span data-i18n="quiz.goal.o1">Make more money</span></button>
+          <button class="quiz-opt" data-key="goal" data-val="Actually relax" data-finish="true"><span data-i18n="quiz.goal.o2">Actually relax</span></button>
+          <button class="quiz-opt" data-key="goal" data-val="Start something new" data-finish="true"><span data-i18n="quiz.goal.o3">Start something new</span></button>
+          <button class="quiz-opt" data-key="goal" data-val="Be with people I love" data-finish="true"><span data-i18n="quiz.goal.o4">Be with people I love</span></button>
         </div>
       </div>
 
       <!-- Loading State -->
       <div id="quiz-loading" class="quiz-step hidden text-center py-12">
         <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#F59E0B] mx-auto mb-6"></div>
-        <h3 class="text-xl font-bold text-white">CALIBRATING YOUR CLAW...</h3>
+        <h3 class="text-xl font-bold text-white" data-i18n="quiz.loading">BUILDING YOUR AI PLAN...</h3>
       </div>
 
-      <!-- Success State -->
-      <div id="quiz-success" class="quiz-step hidden text-center py-8">
-        <div class="w-20 h-20 bg-[#F59E0B] rounded-full flex items-center justify-center mx-auto mb-6">
-           <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-          </svg>
+      <!-- Success State: Personalized AI Plan -->
+      <div id="quiz-success" class="quiz-step hidden py-4">
+        <div class="text-center mb-8">
+          <div class="w-20 h-20 bg-[#F59E0B] rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="text-3xl font-black text-white mb-2" data-i18n="quiz.result.h3">YOUR AI PLAN</h3>
+          <p class="text-zinc-400" data-i18n="quiz.result.intro">Here's how ClawDaddy is about to change your life:</p>
         </div>
-        <h3 class="text-3xl font-black text-white mb-4">YOU'RE ON THE LIST</h3>
-        <p class="text-zinc-400 mb-4 leading-relaxed">Your spot is locked in. We'll notify you the moment ClawDaddy is ready to deploy your autonomous workforce.</p>
-        <p class="text-[#F59E0B] font-mono text-sm">WORKFORCE CALIBRATED — EARLY ACCESS CONFIRMED</p>
+
+        <!-- Personalized recommendations -->
+        <div id="makeover-recommendations" class="space-y-4 mb-8">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Recommended tier -->
+        <div class="text-center mb-6">
+          <p class="text-zinc-500 text-sm mb-2" data-i18n="quiz.result.tier">We recommend:</p>
+          <span id="recommended-tier" class="inline-block px-4 py-2 rounded-full bg-[#F59E0B]/10 border border-[#F59E0B]/20 text-[#F59E0B] font-bold text-lg"></span>
+        </div>
+
+        <div class="text-center">
+          <p class="text-[#F59E0B] font-mono text-sm" data-i18n="quiz.result.confirmed">YOU'RE IN — CHECK YOUR INBOX</p>
+        </div>
       </div>
     </div>
   </div>
@@ -96,16 +147,140 @@
   .quiz-opt {
     @apply w-full p-6 text-left border border-white/10 rounded-2xl text-white font-semibold transition-all hover:bg-white/5 hover:border-[#F59E0B]/50;
   }
+  .rec-card {
+    @apply flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/10;
+  }
 </style>
 
 <script>
-  const quizData: any = {
+  import { getCurrentLang } from '../i18n/i18n-client';
+
+  interface QuizData {
+    email: string;
+    role: string;
+    bottleneck: string;
+    hoursWasted: string;
+    spanishMarket: string;
+    goal: string;
+  }
+
+  const quizData: QuizData = {
     email: '',
-    businessType: '',
-    priorities: '',
-    language: ''
+    role: '',
+    bottleneck: '',
+    hoursWasted: '',
+    spanishMarket: '',
+    goal: ''
   };
 
+  const totalSteps = 6; // 0-5
+
+  function updateProgress(step: number) {
+    const bar = document.getElementById('quiz-progress-bar');
+    if (bar) {
+      const pct = Math.round((step / totalSteps) * 100);
+      bar.style.width = `${pct}%`;
+    }
+  }
+
+  function generateRecommendations(data: QuizData): { bullets: string[]; tier: string } {
+    const lang = getCurrentLang();
+    const bullets: string[] = [];
+
+    // Bottleneck-based
+    const bottleneckMap: Record<string, Record<string, string>> = {
+      'Email & messages': {
+        en: 'Inbox on autopilot — AI reads, drafts, and prioritizes your messages so you only deal with what matters.',
+        es: 'Bandeja en autopiloto — la IA lee, redacta y prioriza tus mensajes para que solo atiendas lo importante.'
+      },
+      'Research & learning': {
+        en: 'Research done for you — get summaries, analysis, and answers while you do literally anything else.',
+        es: 'Investigación hecha por ti — obtén resúmenes, análisis y respuestas mientras haces cualquier otra cosa.'
+      },
+      'Planning & scheduling': {
+        en: 'Smart scheduling — your calendar, reminders, and follow-ups handled automatically.',
+        es: 'Agenda inteligente — tu calendario, recordatorios y seguimientos manejados automáticamente.'
+      },
+      'Repetitive busywork': {
+        en: 'Busywork eliminated — data entry, formatting, and routine tasks done instantly so you never have to.',
+        es: 'Trabajo tedioso eliminado — entrada de datos, formateo y tareas rutinarias resueltas al instante.'
+      }
+    };
+
+    if (bottleneckMap[data.bottleneck]) {
+      bullets.push(bottleneckMap[data.bottleneck][lang]);
+    }
+
+    // Role-based
+    const roleMap: Record<string, Record<string, string>> = {
+      'Business or side hustle': {
+        en: 'Run your thing from your phone — monitor AI agents, approve actions, stay in control without being chained to a desk.',
+        es: 'Maneja tu proyecto desde tu teléfono — monitorea agentes IA, aprueba acciones, mantén el control sin estar encadenado a un escritorio.'
+      },
+      'Freelance or creator': {
+        en: 'More creating, less admin — AI handles follow-ups, invoices, and the boring stuff so you can focus on your craft.',
+        es: 'Más creación, menos admin — la IA maneja seguimientos, facturas y lo aburrido para que te enfoques en lo tuyo.'
+      },
+      '9-to-5 professional': {
+        en: 'Get promoted, not burned out — AI takes the grunt work off your plate so you look like a 10x performer.',
+        es: 'Asciende sin quemarte — la IA quita el trabajo pesado de tu plato para que parezcas un crack.'
+      },
+      'Juggling everything': {
+        en: 'Finally breathe — AI catches everything you\'re dropping so you can stop feeling underwater.',
+        es: 'Por fin respira — la IA atrapa todo lo que se te cae para que dejes de sentirte ahogado.'
+      }
+    };
+
+    if (roleMap[data.role]) {
+      bullets.push(roleMap[data.role][lang]);
+    }
+
+    // Spanish need
+    const needsSpanish = data.spanishMarket !== 'English only';
+    if (needsSpanish) {
+      bullets.push(lang === 'en'
+        ? 'Bilingual AI — seamlessly works in English and Spanish so you never miss a beat with anyone.'
+        : 'IA bilingüe — funciona en inglés y español para que nunca pierdas el ritmo con nadie.'
+      );
+    }
+
+    // Goal-based
+    const goalMap: Record<string, Record<string, string>> = {
+      'Make more money': {
+        en: 'Revenue mode — AI handles the grind so every hour you spend is on high-value moves only.',
+        es: 'Modo ingresos — la IA maneja la rutina para que cada hora que gastes sea solo en jugadas de alto valor.'
+      },
+      'Actually relax': {
+        en: 'Get your life back — AI works nights, weekends, and holidays so you actually don\'t have to.',
+        es: 'Recupera tu vida — la IA trabaja noches, fines de semana y festivos para que tú realmente no tengas que hacerlo.'
+      },
+      'Start something new': {
+        en: 'Launch faster — AI gives you the bandwidth to finally start that thing you\'ve been putting off.',
+        es: 'Lanza más rápido — la IA te da el ancho de banda para finalmente empezar eso que has pospuesto.'
+      },
+      'Be with people I love': {
+        en: 'Time where it matters — AI handles the noise so you can be present with the people who actually matter.',
+        es: 'Tiempo donde importa — la IA maneja el ruido para que puedas estar presente con las personas que realmente importan.'
+      }
+    };
+
+    if (goalMap[data.goal]) {
+      bullets.push(goalMap[data.goal][lang]);
+    }
+
+    // Determine recommended tier
+    let tier = 'OpenClaw (Free)';
+    if (needsSpanish || data.hoursWasted === '10-20 hours' || data.hoursWasted === '20+ hours') {
+      tier = 'Daddy ($59/mo)';
+    }
+    if (data.hoursWasted === '20+ hours' && needsSpanish) {
+      tier = 'Big Daddy ($119/mo)';
+    }
+
+    return { bullets, tier };
+  }
+
+  // Email continue button
   const startBtn = document.getElementById('start-quiz');
   const emailInput = document.getElementById('quiz-email') as HTMLInputElement;
 
@@ -115,15 +290,27 @@
       quizData.email = email;
       document.getElementById('step-0')?.classList.add('hidden');
       document.getElementById('step-1')?.classList.remove('hidden');
+      updateProgress(1);
     } else {
-      alert('Please enter a valid business email.');
+      emailInput.focus();
+      emailInput.classList.add('border-red-500/50');
+      setTimeout(() => emailInput.classList.remove('border-red-500/50'), 2000);
     }
   });
 
+  // Allow Enter key on email input
+  emailInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      startBtn?.click();
+    }
+  });
+
+  // Quiz option buttons
   document.querySelectorAll('.quiz-opt').forEach(button => {
     button.addEventListener('click', async () => {
       const btn = button as HTMLButtonElement;
-      const key = btn.getAttribute('data-key');
+      const key = btn.getAttribute('data-key') as keyof QuizData | null;
       const val = btn.getAttribute('data-val');
       const currentStep = btn.closest('.quiz-step');
       const nextStepId = btn.getAttribute('data-next');
@@ -136,16 +323,20 @@
       currentStep?.classList.add('hidden');
 
       if (isFinish) {
+        document.getElementById('quiz-progress-wrap')?.classList.add('hidden');
         document.getElementById('quiz-loading')?.classList.remove('hidden');
 
         // Populate hidden form fields
         (document.getElementById('form-email') as HTMLInputElement).value = quizData.email;
-        (document.getElementById('form-businessType') as HTMLInputElement).value = quizData.businessType;
-        (document.getElementById('form-priorities') as HTMLInputElement).value = quizData.priorities;
-        (document.getElementById('form-language') as HTMLInputElement).value = quizData.language;
+        (document.getElementById('form-role') as HTMLInputElement).value = quizData.role;
+        (document.getElementById('form-bottleneck') as HTMLInputElement).value = quizData.bottleneck;
+        (document.getElementById('form-hoursWasted') as HTMLInputElement).value = quizData.hoursWasted;
+        (document.getElementById('form-spanishMarket') as HTMLInputElement).value = quizData.spanishMarket;
+        (document.getElementById('form-goal') as HTMLInputElement).value = quizData.goal;
+        (document.getElementById('form-language') as HTMLInputElement).value = getCurrentLang();
 
         try {
-          const formData = new FormData(document.getElementById('waitlist-form') as HTMLFormElement);
+          const formData = new FormData(document.getElementById('makeover-form') as HTMLFormElement);
           const response = await fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -158,13 +349,34 @@
         } catch (error) {
           console.warn('Network error submitting form:', error);
         } finally {
+          // Generate personalized recommendations
+          const { bullets, tier } = generateRecommendations(quizData);
+
+          const recsContainer = document.getElementById('makeover-recommendations');
+          if (recsContainer) {
+            recsContainer.innerHTML = bullets.map(b => `
+              <div class="rec-card">
+                <div class="w-8 h-8 rounded-lg bg-[#F59E0B]/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#F59E0B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p class="text-zinc-300 text-sm leading-relaxed">${b}</p>
+              </div>
+            `).join('');
+          }
+
+          const tierEl = document.getElementById('recommended-tier');
+          if (tierEl) tierEl.textContent = tier;
+
           setTimeout(() => {
             document.getElementById('quiz-loading')?.classList.add('hidden');
             document.getElementById('quiz-success')?.classList.remove('hidden');
-          }, 800);
+          }, 1200);
         }
       } else if (nextStepId) {
         document.getElementById(`step-${nextStepId}`)?.classList.remove('hidden');
+        updateProgress(parseInt(nextStepId));
       }
     });
   });

@@ -1,0 +1,32 @@
+---
+---
+<button
+  class="lang-toggle px-3 py-1.5 rounded-full border border-white/10 text-sm font-medium text-zinc-300 hover:text-white hover:border-white/20 transition-all"
+>
+  Español
+</button>
+
+<script>
+  import { getCurrentLang, setLang, applyTranslations } from '../i18n/i18n-client';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const lang = getCurrentLang();
+    const toggleBtns = document.querySelectorAll<HTMLButtonElement>('.lang-toggle');
+
+    // Set initial button text
+    toggleBtns.forEach(btn => {
+      btn.textContent = lang === 'en' ? 'Español' : 'English';
+    });
+
+    // Apply translations on load (handles non-EN default)
+    applyTranslations(lang);
+
+    // Toggle handler for all toggle buttons
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const current = getCurrentLang();
+        setLang(current === 'en' ? 'es' : 'en');
+      });
+    });
+  });
+</script>

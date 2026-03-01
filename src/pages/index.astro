@@ -1,10 +1,11 @@
 ---
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import ModelTiers from '../components/ModelTiers.astro';
 import Quiz from '../components/Quiz.astro';
 import Pricing from '../components/Pricing.astro';
 
-const title = "ClawDaddy | Your AI Workforce. From Your Pocket.";
+const title = "ClawDaddy | Your Life. On Autopilot.";
 ---
 
 <html lang="en">
@@ -17,6 +18,18 @@ const title = "ClawDaddy | Your AI Workforce. From Your Pocket.";
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+		<!-- FOEC prevention: apply saved language before paint -->
+		<script is:inline>
+			var lang = localStorage.getItem('clawdaddy-lang') || 'en';
+			document.documentElement.setAttribute('lang', lang);
+			if (lang !== 'en') document.documentElement.classList.add('i18n-loading');
+		</script>
+		<style>
+			.i18n-loading [data-i18n],
+			.i18n-loading [data-i18n-placeholder] { opacity: 0; }
+		</style>
+
 		<style>
 			:root {
 				--primaryAccent: #F59E0B;
@@ -31,54 +44,10 @@ const title = "ClawDaddy | Your AI Workforce. From Your Pocket.";
 	</head>
 	<body class="text-white selection:bg-[#F59E0B] selection:text-black">
 		<Header />
-		
+
 		<main>
 			<Hero />
-			
-			<!-- BILINGUAL STORY SECTION -->
-			<section class="py-24 bg-[#0A0A0A] border-t border-white/5 overflow-hidden">
-				<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-					<div>
-						<h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-8 leading-none">
-							BILINGUAL BY BIRTH. <br/>
-							<span class="text-[#F59E0B]">NATIVE BY DESIGN.</span>
-						</h2>
-						<p class="text-xl text-zinc-400 font-light leading-relaxed mb-8">
-							The world is too big for one language. ClawDaddy agents are trained on massive datasets in both <strong>English and Spanish</strong>. They don't just translate; they understand cultural nuance, tone, and slang.
-						</p>
-						<div class="flex items-center gap-4">
-							<div class="px-4 py-2 rounded-lg bg-zinc-900 border border-white/10 flex items-center gap-2">
-								<span class="text-2xl">🇺🇸</span>
-								<span class="text-sm font-bold uppercase tracking-widest text-zinc-400">Perfect English</span>
-							</div>
-							<div class="px-4 py-2 rounded-lg bg-zinc-900 border border-white/10 flex items-center gap-2">
-								<span class="text-2xl">🇪🇸</span>
-								<span class="text-sm font-bold uppercase tracking-widest text-zinc-400">Español Nativo</span>
-							</div>
-						</div>
-					</div>
-					<div class="relative">
-						<div class="absolute -inset-4 bg-[#F59E0B]/10 blur-3xl rounded-full -z-10"></div>
-						<div class="bg-zinc-900/50 border border-white/10 p-8 rounded-3xl backdrop-blur-sm">
-							<div class="space-y-4 font-mono text-sm">
-								<div class="flex gap-3">
-									<span class="text-[#F59E0B]">AGENT:</span>
-									<span class="text-zinc-300">"El cliente está preguntando por el tiempo de entrega en Madrid..."</span>
-								</div>
-								<div class="flex gap-3">
-									<span class="text-[#F59E0B]">SYSTEM:</span>
-									<span class="text-zinc-500">Cross-referencing logistics DB...</span>
-								</div>
-								<div class="flex gap-3">
-									<span class="text-[#F59E0B]">AGENT:</span>
-									<span class="text-white">"¡Hola! Tu pedido llegará el martes. ¿Necesitas ayuda con algo más?"</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
+			<ModelTiers />
 			<Quiz />
 			<Pricing />
 		</main>
@@ -88,14 +57,13 @@ const title = "ClawDaddy | Your AI Workforce. From Your Pocket.";
 				<div class="w-12 h-12 bg-[#F59E0B] rounded-xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-[#F59E0B]/20">
 					<span class="text-black font-black text-2xl">C</span>
 				</div>
-				<p class="text-zinc-500 text-sm mb-4">© 2026 ClawDaddy Operations. Built for the Sovereign Individual.</p>
+				<p class="text-zinc-500 text-sm mb-4" data-i18n="footer.copy">© 2026 ClawDaddy. All rights reserved.</p>
 				<div class="flex items-center justify-center gap-6 text-zinc-600 text-xs uppercase tracking-widest font-bold">
-					<a href="#" class="hover:text-white transition-colors">Privacy</a>
-					<a href="#" class="hover:text-white transition-colors">Terms</a>
-					<a href="#" class="hover:text-white transition-colors">GitHub</a>
+					<a href="#" class="hover:text-white transition-colors" data-i18n="footer.privacy">Privacy</a>
+					<a href="#" class="hover:text-white transition-colors" data-i18n="footer.terms">Terms</a>
+					<a href="#" class="hover:text-white transition-colors" data-i18n="footer.github">GitHub</a>
 				</div>
 			</div>
 		</footer>
 	</body>
 </html>
-

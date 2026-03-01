@@ -1,73 +1,127 @@
 ---
-const tiers = [
-  {
-    name: 'Claw',
-    price: '29',
-    description: 'Perfect for solos starting their AI journey.',
-    features: ['1 Autonomous Agent', 'Inbox Triage (EN/ES)', '100 Tasks/mo', 'Mobile Dashboard'],
-    cta: 'Join Waitlist',
-    popular: false
-  },
-  {
-    name: 'Daddy',
-    price: '59',
-    description: 'Scaling operations for serious builders.',
-    features: ['3 Autonomous Agents', 'Social Media Stealth', 'Unlimited Tasks', 'Priority Response'],
-    cta: 'Join Waitlist',
-    popular: true
-  },
-  {
-    name: 'Big Daddy',
-    price: '119',
-    description: 'Full-scale AI workforce for enterprises.',
-    features: ['Unlimited Agents', 'Custom Workflow Design', 'API Access', '24/7 Human-in-the-loop'],
-    cta: 'Join Waitlist',
-    popular: false
-  }
-];
 ---
 <section id="pricing" class="py-24 bg-[#0A0A0A]">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-4 uppercase">TRANSPARENT PRICING.</h2>
-      <p class="text-zinc-500 max-w-xl mx-auto">Choose the scale of your digital empire. No hidden fees. Just pure execution.</p>
+      <h2 class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-4 uppercase" data-i18n="pricing.h2">SIMPLE PRICING.</h2>
+      <p class="text-zinc-500 max-w-xl mx-auto" data-i18n="pricing.sub">OpenClaw is free forever. Upgrade when you want more power.</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      {tiers.map((tier) => (
-        <div class={`relative p-8 rounded-3xl border transition-all duration-300 ${tier.popular ? 'bg-[#111] border-[#F59E0B] scale-105 z-10' : 'bg-[#0F0F0F] border-white/5 hover:border-white/10'}`}>
-          {tier.popular && (
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#F59E0B] text-black text-[10px] font-black uppercase tracking-widest">
-              Most Popular
-            </div>
-          )}
-          
-          <div class="mb-8">
-            <h3 class="text-2xl font-bold text-white mb-2">{tier.name}</h3>
-            <p class="text-zinc-500 text-sm">{tier.description}</p>
-          </div>
 
-          <div class="mb-8 flex items-baseline gap-1">
-            <span class="text-5xl font-black text-white">${tier.price}</span>
-            <span class="text-zinc-500 text-sm">/month</span>
-          </div>
-
-          <ul class="mb-10 space-y-4">
-            {tier.features.map((feature) => (
-              <li class="flex items-center gap-3 text-zinc-300 text-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                {feature}
-              </li>
-            ))}
-          </ul>
-
-          <a href="#quiz" class={`block w-full py-4 rounded-2xl text-center font-bold transition-all ${tier.popular ? 'bg-[#F59E0B] text-black hover:scale-[1.02]' : 'bg-white/5 text-white hover:bg-white/10'}`}>
-            {tier.cta}
-          </a>
+      <!-- OpenClaw (Free) -->
+      <div class="relative p-8 rounded-3xl border bg-[#0F0F0F] border-white/5 hover:border-white/10 transition-all duration-300">
+        <div class="mb-8">
+          <h3 class="text-2xl font-bold text-white mb-2" data-i18n="pricing.claw.name">OpenClaw</h3>
+          <p class="text-zinc-500 text-sm" data-i18n="pricing.claw.desc">The one everyone's talking about.</p>
         </div>
-      ))}
+        <div class="mb-8 flex items-baseline gap-1">
+          <span class="text-5xl font-black text-white" data-i18n="pricing.claw.price">Free</span>
+        </div>
+        <ul class="mb-10 space-y-4">
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.claw.f1">Fast AI model for everyday tasks</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.claw.f2">English only</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.claw.f3">50 tasks/month</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.claw.f4">Mobile app access</span>
+          </li>
+        </ul>
+        <a href="#quiz" class="block w-full py-4 rounded-2xl text-center font-bold transition-all bg-white/5 text-white hover:bg-white/10" data-i18n="pricing.claw.cta">
+          Start Free
+        </a>
+      </div>
+
+      <!-- Daddy ($59/mo) — Most Popular -->
+      <div class="relative p-8 rounded-3xl border bg-[#111] border-[#F59E0B] scale-105 z-10 transition-all duration-300">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#F59E0B] text-black text-[10px] font-black uppercase tracking-widest" data-i18n="pricing.popular">
+          Most Popular
+        </div>
+        <div class="mb-8">
+          <h3 class="text-2xl font-bold text-white mb-2" data-i18n="pricing.daddy.name">Daddy</h3>
+          <p class="text-zinc-500 text-sm" data-i18n="pricing.daddy.desc">For people who are done wasting time.</p>
+        </div>
+        <div class="mb-8 flex items-baseline gap-1">
+          <span class="text-5xl font-black text-white" data-i18n="pricing.daddy.price">$59</span>
+          <span class="text-zinc-500 text-sm" data-i18n="pricing.daddy.period">/month</span>
+        </div>
+        <ul class="mb-10 space-y-4">
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.daddy.f1">Most powerful AI model</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.daddy.f2">English + Spanish</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.daddy.f3">Gmail inbox on autopilot</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.daddy.f4">Unlimited tasks</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.daddy.f5">Priority speed</span>
+          </li>
+        </ul>
+        <a href="#quiz" class="block w-full py-4 rounded-2xl text-center font-bold transition-all bg-[#F59E0B] text-black hover:scale-[1.02]" data-i18n="pricing.daddy.cta">
+          Get Daddy
+        </a>
+      </div>
+
+      <!-- Big Daddy ($119/mo) -->
+      <div class="relative p-8 rounded-3xl border bg-[#0F0F0F] border-white/5 hover:border-white/10 transition-all duration-300">
+        <div class="mb-8">
+          <h3 class="text-2xl font-bold text-white mb-2" data-i18n="pricing.bigdaddy.name">Big Daddy</h3>
+          <p class="text-zinc-500 text-sm" data-i18n="pricing.bigdaddy.desc">Unlimited everything. Total control.</p>
+        </div>
+        <div class="mb-8 flex items-baseline gap-1">
+          <span class="text-5xl font-black text-white" data-i18n="pricing.bigdaddy.price">$119</span>
+          <span class="text-zinc-500 text-sm" data-i18n="pricing.bigdaddy.period">/month</span>
+        </div>
+        <ul class="mb-10 space-y-4">
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.bigdaddy.f1">Most powerful AI model</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.bigdaddy.f2">English + Spanish</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.bigdaddy.f3">Gmail inbox on autopilot</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.bigdaddy.f4">Unlimited tasks</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.bigdaddy.f5">API access & custom automations</span>
+          </li>
+          <li class="flex items-center gap-3 text-zinc-300 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#F59E0B] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span data-i18n="pricing.bigdaddy.f6">Dedicated support</span>
+          </li>
+        </ul>
+        <a href="#quiz" class="block w-full py-4 rounded-2xl text-center font-bold transition-all bg-white/5 text-white hover:bg-white/10" data-i18n="pricing.bigdaddy.cta">
+          Get Big Daddy
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
