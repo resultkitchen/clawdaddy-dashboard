@@ -4,46 +4,72 @@ export const translations: Record<string, Record<Lang, string>> = {
   // ── Header ──
   'header.features': { en: 'Features', es: 'Funciones' },
   'header.pricing': { en: 'Pricing', es: 'Precios' },
-  'header.cta': { en: 'Get Your AI Plan', es: 'Obtén Tu Plan IA' },
+  'header.cta': { en: 'Meet Your AI Workforce', es: 'Conoce a Tu Equipo IA' },
 
   // ── Hero ──
-  'hero.badge': { en: 'OpenClaw is free — forever', es: 'OpenClaw es gratis — para siempre' },
-  'hero.h1.line1': { en: 'Your Life.', es: 'Tu Vida.' },
-  'hero.h1.line2': { en: 'On Autopilot.', es: 'En Autopiloto.' },
+  'hero.badge': { en: 'Set up in 60 seconds. No tech skills needed.', es: 'Configura en 60 segundos. Sin habilidades técnicas.' },
+  'hero.h1.line1': { en: 'Finally Get To Inbox Zero.', es: 'Por Fin Llega a Inbox Zero.' },
+  'hero.h1.line2': { en: 'Without Spending Hours On It.', es: 'Sin Pasar Horas en Ello.' },
   'hero.sub': {
-    en: 'OpenClaw went viral for a reason. AI that actually handles your daily grind — email, scheduling, research, busywork — so you get your time back. Free to start. No credit card.',
-    es: 'OpenClaw se hizo viral por algo. IA que realmente maneja tu rutina diaria — email, agenda, investigación, tareas — para que recuperes tu tiempo. Gratis para empezar. Sin tarjeta.'
+    en: 'Your AI workforce handles your email, writes your social posts in your voice, and never forgets an important detail. Set up in 60 seconds.',
+    es: 'Tu equipo IA maneja tu email, escribe tus publicaciones sociales con tu voz y nunca olvida un detalle importante. Configura en 60 segundos.'
   },
-  'hero.cta': { en: 'Get Your Free AI Plan', es: 'Obtén Tu Plan IA Gratis' },
-  'hero.social': { en: '50,000+ people already using OpenClaw', es: '50,000+ personas ya usan OpenClaw' },
+  'hero.cta': { en: 'Meet Your AI Workforce', es: 'Conoce a Tu Equipo IA' },
+  'hero.social': { en: '50,000+ people already reclaiming their time', es: '50,000+ personas ya recuperando su tiempo' },
+  'hero.benefit1': { en: 'Clean inbox every morning', es: 'Bandeja limpia cada mañana' },
+  'hero.benefit2': { en: 'Social posts in your voice', es: 'Publicaciones sociales con tu voz' },
+  'hero.benefit3': { en: 'Never forget a thing', es: 'Nunca olvides nada' },
+  'hero.benefit4': { en: 'Works while you sleep', es: 'Trabaja mientras duermes' },
 
   // ── Model Tiers ──
-  'models.h2': { en: 'TWO ENGINES. ONE APP.', es: 'DOS MOTORES. UNA APP.' },
+  'models.h2': { en: 'PICK YOUR LEVEL OF FREEDOM.', es: 'ELIGE TU NIVEL DE LIBERTAD.' },
   'models.sub': {
-    en: 'Every task gets the right brain — fast daily autopilot or deep thinking when it matters.',
-    es: 'Cada tarea recibe el cerebro adecuado — autopiloto diario rápido o pensamiento profundo cuando importa.'
+    en: 'Every plan gives you back hours of your day. The only question is how much of your life you want handled.',
+    es: 'Cada plan te devuelve horas de tu día. La única pregunta es cuánto de tu vida quieres que se maneje.'
   },
-  'models.t2.title': { en: 'Fast & Efficient', es: 'Rápido y Eficiente' },
-  'models.t2.badge': { en: 'Free with OpenClaw', es: 'Gratis con OpenClaw' },
-  'models.t2.desc': {
-    en: 'Handles your everyday stuff instantly. The reason people can\'t stop talking about OpenClaw.',
-    es: 'Maneja tus cosas del día a día al instante. La razón por la que la gente no para de hablar de OpenClaw.'
-  },
-  'models.t2.f1': { en: 'Email drafts & replies', es: 'Borradores y respuestas de email' },
-  'models.t2.f2': { en: 'Quick summaries & lookups', es: 'Resúmenes rápidos y búsquedas' },
-  'models.t2.f3': { en: 'Scheduling & reminders', es: 'Agenda y recordatorios' },
-  'models.t2.f4': { en: 'Organizing your chaos', es: 'Organiza tu caos' },
+  'models.popular': { en: 'Most Popular', es: 'Más Popular' },
 
-  'models.sota.title': { en: 'State-of-the-Art', es: 'Lo Más Avanzado' },
-  'models.sota.badge': { en: 'Daddy & Big Daddy', es: 'Daddy y Big Daddy' },
-  'models.sota.desc': {
-    en: 'Deep thinking for the stuff that actually matters. Research, strategy, writing that sounds like you.',
-    es: 'Pensamiento profundo para lo que realmente importa. Investigación, estrategia, escritura que suena como tú.'
+  // Claw ($29/mo) — The Daily Helper
+  'models.claw.badge': { en: 'The Daily Helper', es: 'La Ayuda Diaria' },
+  'models.claw.title': { en: 'Claw', es: 'Claw' },
+  'models.claw.price': { en: '$29', es: '$29' },
+  'models.claw.period': { en: '/month', es: '/mes' },
+  'models.claw.desc': {
+    en: 'One email, one social platform. Finally get your inbox under control and stop stressing about what to post.',
+    es: 'Un email, una red social. Por fin controla tu bandeja y deja de estresarte por qué publicar.'
   },
-  'models.sota.f1': { en: 'Deep research & analysis', es: 'Investigación y análisis profundo' },
-  'models.sota.f2': { en: 'Complex problem solving', es: 'Resolución de problemas complejos' },
-  'models.sota.f3': { en: 'Strategy & planning', es: 'Estrategia y planificación' },
-  'models.sota.f4': { en: 'Writing that sounds human', es: 'Escritura que suena humana' },
+  'models.claw.f1': { en: 'Wake up to a clean inbox', es: 'Despierta con una bandeja limpia' },
+  'models.claw.f2': { en: 'Social posts written and scheduled for you', es: 'Publicaciones sociales escritas y programadas para ti' },
+  'models.claw.f3': { en: 'Important reminders so you never drop the ball', es: 'Recordatorios importantes para que nunca falles' },
+  'models.claw.f4': { en: 'Set up in 60 seconds, works immediately', es: 'Configura en 60 segundos, funciona de inmediato' },
+
+  // Daddy ($59/mo) — The Personal Assistant
+  'models.daddy.badge': { en: 'The Personal Assistant', es: 'El Asistente Personal' },
+  'models.daddy.title': { en: 'Daddy', es: 'Daddy' },
+  'models.daddy.price': { en: '$59', es: '$59' },
+  'models.daddy.period': { en: '/month', es: '/mes' },
+  'models.daddy.desc': {
+    en: 'Three emails, three social platforms. Your digital workforce, in your pocket. Like having a personal assistant without the $3,000/month price tag.',
+    es: 'Tres emails, tres redes sociales. Tu equipo digital, en tu bolsillo. Como tener un asistente personal sin la etiqueta de $3,000/mes.'
+  },
+  'models.daddy.f1': { en: 'All your inboxes cleared before breakfast', es: 'Todas tus bandejas limpias antes del desayuno' },
+  'models.daddy.f2': { en: 'Social content across all your platforms', es: 'Contenido social en todas tus plataformas' },
+  'models.daddy.f3': { en: 'Birthdays, deadlines, follow-ups — all remembered', es: 'Cumpleaños, plazos, seguimientos — todo recordado' },
+  'models.daddy.f4': { en: 'Works 24/7 so you don\'t have to', es: 'Trabaja 24/7 para que tú no tengas que hacerlo' },
+
+  // Big Daddy ($119/mo) — The Full Team
+  'models.bigdaddy.badge': { en: 'The Full Team', es: 'El Equipo Completo' },
+  'models.bigdaddy.title': { en: 'Big Daddy', es: 'Big Daddy' },
+  'models.bigdaddy.price': { en: '$119', es: '$119' },
+  'models.bigdaddy.period': { en: '/month', es: '/mes' },
+  'models.bigdaddy.desc': {
+    en: 'Unlimited everything. Your whole life, handled. Less than a coffee a day for a full digital team working around the clock.',
+    es: 'Todo ilimitado. Toda tu vida, manejada. Menos que un café al día por un equipo digital completo trabajando todo el tiempo.'
+  },
+  'models.bigdaddy.f1': { en: 'Unlimited email accounts, all on autopilot', es: 'Cuentas de email ilimitadas, todas en piloto automático' },
+  'models.bigdaddy.f2': { en: 'Every social platform, always posting', es: 'Cada red social, siempre publicando' },
+  'models.bigdaddy.f3': { en: 'Your whole life organized and on track', es: 'Toda tu vida organizada y en camino' },
+  'models.bigdaddy.f4': { en: 'Priority support — a real human when you need one', es: 'Soporte prioritario — un humano real cuando lo necesitas' },
 
   // ── Quiz ──
   'quiz.h2': { en: 'YOUR FREE AI PLAN', es: 'TU PLAN IA GRATIS' },
@@ -105,40 +131,41 @@ export const translations: Record<string, Record<Lang, string>> = {
   // ── Pricing ──
   'pricing.h2': { en: 'SIMPLE PRICING.', es: 'PRECIOS SIMPLES.' },
   'pricing.sub': {
-    en: 'OpenClaw is free forever. Upgrade when you want more power.',
-    es: 'OpenClaw es gratis para siempre. Mejora cuando quieras más poder.'
+    en: 'Start free. Upgrade when you want your AI workforce working harder.',
+    es: 'Empieza gratis. Mejora cuando quieras que tu equipo IA trabaje más duro.'
   },
   'pricing.popular': { en: 'Most Popular', es: 'Más Popular' },
 
-  'pricing.claw.name': { en: 'OpenClaw', es: 'OpenClaw' },
-  'pricing.claw.price': { en: 'Free', es: 'Gratis' },
-  'pricing.claw.desc': { en: 'The one everyone\'s talking about.', es: 'Del que todo el mundo habla.' },
-  'pricing.claw.f1': { en: 'Fast AI model for everyday tasks', es: 'Modelo IA rápido para tareas diarias' },
-  'pricing.claw.f2': { en: 'English only', es: 'Solo inglés' },
-  'pricing.claw.f3': { en: '50 tasks/month', es: '50 tareas/mes' },
-  'pricing.claw.f4': { en: 'Mobile app access', es: 'Acceso a la app móvil' },
-  'pricing.claw.cta': { en: 'Start Free', es: 'Empieza Gratis' },
+  'pricing.claw.name': { en: 'Claw', es: 'Claw' },
+  'pricing.claw.price': { en: '$29', es: '$29' },
+  'pricing.claw.period': { en: '/month', es: '/mes' },
+  'pricing.claw.desc': { en: 'One email, one social platform. Finally get your inbox under control.', es: 'Un email, una red social. Por fin controla tu bandeja.' },
+  'pricing.claw.f1': { en: 'Wake up to a clean inbox', es: 'Despierta con una bandeja limpia' },
+  'pricing.claw.f2': { en: 'Social posts written and scheduled for you', es: 'Publicaciones sociales escritas y programadas para ti' },
+  'pricing.claw.f3': { en: 'Important reminders so you never drop the ball', es: 'Recordatorios importantes para que nunca falles' },
+  'pricing.claw.f4': { en: 'Set up in 60 seconds, works immediately', es: 'Configura en 60 segundos, funciona de inmediato' },
+  'pricing.claw.cta': { en: 'Start Claw', es: 'Empezar Claw' },
 
   'pricing.daddy.name': { en: 'Daddy', es: 'Daddy' },
   'pricing.daddy.price': { en: '$59', es: '$59' },
   'pricing.daddy.period': { en: '/month', es: '/mes' },
-  'pricing.daddy.desc': { en: 'For people who are done wasting time.', es: 'Para gente que ya no quiere perder el tiempo.' },
-  'pricing.daddy.f1': { en: 'Most powerful AI model', es: 'El modelo IA más potente' },
-  'pricing.daddy.f2': { en: 'English + Spanish', es: 'Inglés + Español' },
-  'pricing.daddy.f3': { en: 'Gmail inbox on autopilot', es: 'Bandeja de Gmail en autopiloto' },
-  'pricing.daddy.f4': { en: 'Unlimited tasks', es: 'Tareas ilimitadas' },
-  'pricing.daddy.f5': { en: 'Priority speed', es: 'Velocidad prioritaria' },
+  'pricing.daddy.desc': { en: 'Three emails, three social platforms. Your digital workforce, in your pocket.', es: 'Tres emails, tres redes sociales. Tu equipo digital, en tu bolsillo.' },
+  'pricing.daddy.f1': { en: 'All your inboxes cleared before breakfast', es: 'Todas tus bandejas limpias antes del desayuno' },
+  'pricing.daddy.f2': { en: 'Social content across all your platforms', es: 'Contenido social en todas tus plataformas' },
+  'pricing.daddy.f3': { en: 'Birthdays, deadlines, follow-ups — all remembered', es: 'Cumpleaños, plazos, seguimientos — todo recordado' },
+  'pricing.daddy.f4': { en: 'Works 24/7 so you don\'t have to', es: 'Trabaja 24/7 para que tú no tengas que hacerlo' },
+  'pricing.daddy.f5': { en: 'Priority support', es: 'Soporte prioritario' },
   'pricing.daddy.cta': { en: 'Get Daddy', es: 'Obtén Daddy' },
 
   'pricing.bigdaddy.name': { en: 'Big Daddy', es: 'Big Daddy' },
   'pricing.bigdaddy.price': { en: '$119', es: '$119' },
   'pricing.bigdaddy.period': { en: '/month', es: '/mes' },
-  'pricing.bigdaddy.desc': { en: 'Unlimited everything. Total control.', es: 'Todo ilimitado. Control total.' },
-  'pricing.bigdaddy.f1': { en: 'Most powerful AI model', es: 'El modelo IA más potente' },
-  'pricing.bigdaddy.f2': { en: 'English + Spanish', es: 'Inglés + Español' },
-  'pricing.bigdaddy.f3': { en: 'Gmail inbox on autopilot', es: 'Bandeja de Gmail en autopiloto' },
-  'pricing.bigdaddy.f4': { en: 'Unlimited tasks', es: 'Tareas ilimitadas' },
-  'pricing.bigdaddy.f5': { en: 'API access & custom automations', es: 'Acceso API y automatizaciones' },
+  'pricing.bigdaddy.desc': { en: 'Unlimited everything. Your whole life, handled.', es: 'Todo ilimitado. Toda tu vida, manejada.' },
+  'pricing.bigdaddy.f1': { en: 'Unlimited email accounts, all on autopilot', es: 'Cuentas de email ilimitadas, todas en piloto automático' },
+  'pricing.bigdaddy.f2': { en: 'Every social platform, always posting', es: 'Cada red social, siempre publicando' },
+  'pricing.bigdaddy.f3': { en: 'Your whole life organized and on track', es: 'Toda tu vida organizada y en camino' },
+  'pricing.bigdaddy.f4': { en: 'Priority support — a real human when you need one', es: 'Soporte prioritario — un humano real cuando lo necesitas' },
+  'pricing.bigdaddy.f5': { en: 'API access & custom automations', es: 'Acceso API y automatizaciones personalizadas' },
   'pricing.bigdaddy.f6': { en: 'Dedicated support', es: 'Soporte dedicado' },
   'pricing.bigdaddy.cta': { en: 'Get Big Daddy', es: 'Obtén Big Daddy' },
 
