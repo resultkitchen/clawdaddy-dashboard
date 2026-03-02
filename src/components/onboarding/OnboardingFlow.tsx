@@ -26,7 +26,7 @@ const StepLang = ({ data, setData, next }: StepProps) => {
           <button
             key={l.code}
             onClick={() => setData({ ...data, lang: l.code })}
-            className={`px-8 py-4 rounded-2xl text-base font-bold transition-all flex items-center gap-3 ${
+            className={`px-5 py-4 rounded-2xl text-base font-bold transition-all flex items-center gap-2 sm:gap-3 sm:px-8 ${
               data.lang === l.code
                 ? "border-2 border-primary bg-primary-light text-primary"
                 : "border-2 border-border bg-white text-text-secondary"
@@ -78,8 +78,13 @@ const StepBusiness = ({ data, setData, next }: StepProps) => {
       </div>
       <div className="mt-4">
         <div className="text-text-secondary text-sm mb-2">{t(data, "Team size", "Tama\u00F1o del equipo")}</div>
-        <div className="flex gap-2">
-          {[{ l: "Just me", v: "solo" }, { l: "2\u20135", v: "small" }, { l: "6\u201320", v: "medium" }, { l: "20+", v: "large" }].map((s) => (
+        <div className="flex flex-wrap gap-2">
+          {[
+            { l: t(data, "Just me", "Solo yo"), v: "solo" },
+            { l: "2–5", v: "small" },
+            { l: "6–20", v: "medium" },
+            { l: "20+", v: "large" },
+          ].map((s) => (
             <Chip key={s.v} label={s.l} selected={data.teamSize === s.v} onClick={() => setData({ ...data, teamSize: s.v })} />
           ))}
         </div>
@@ -155,8 +160,8 @@ const StepEmailConnect = ({ data, setData, next }: StepProps) => {
         <p className="text-primary/80 text-xs">{t(data, "Read-only to start. We never send without your approval.", "Solo lectura al principio. Nunca enviamos sin tu permiso.")}</p>
       </div>
       <div className="flex flex-col gap-3">
-        <IntegrationCard icon={connecting === "gmail" ? "\u23F3" : "\u{1F4E7}"} name="Gmail" desc={t(data, "Google Workspace or personal", "Google Workspace o personal")} connected={data.emailConnected && data.emailProvider === "gmail"} onConnect={() => connect("gmail")} />
-        <IntegrationCard icon={connecting === "outlook" ? "\u23F3" : "\u{1F4E8}"} name="Outlook" desc={t(data, "Microsoft 365 or personal", "Microsoft 365 o personal")} connected={data.emailConnected && data.emailProvider === "outlook"} onConnect={() => connect("outlook")} />
+        <IntegrationCard icon={connecting === "gmail" ? "\u23F3" : "\u{1F4E7}"} name="Gmail" desc={t(data, "Google Workspace or personal", "Google Workspace o personal")} connected={data.emailConnected && data.emailProvider === "gmail"} onConnect={() => connect("gmail")} labelLinked={t(data, "Linked", "Conectado")} labelConnect={t(data, "Connect", "Conectar")} />
+        <IntegrationCard icon={connecting === "outlook" ? "\u23F3" : "\u{1F4E8}"} name="Outlook" desc={t(data, "Microsoft 365 or personal", "Microsoft 365 o personal")} connected={data.emailConnected && data.emailProvider === "outlook"} onConnect={() => connect("outlook")} labelLinked={t(data, "Linked", "Conectado")} labelConnect={t(data, "Connect", "Conectar")} />
       </div>
       <div className="mt-8"><Btn onClick={next} disabled={!data.emailConnected}>{t(data, "Continue", "Siguiente")}</Btn></div>
       <button onClick={next} className="w-full text-center text-text-secondary text-sm mt-3 hover:text-text-primary transition-colors">
@@ -220,7 +225,7 @@ const StepSocialConnect = ({ data, setData, next }: StepProps) => {
       <StepDesc text={t(data, "ClawDaddy becomes your voice \u2014 invisible, consistent, always on.", "ClawDaddy ser\u00E1 tu voz \u2014 invisible, consistente, siempre activo.")} />
       <div className="flex flex-col gap-2.5">
         {platforms.map((p) => (
-          <IntegrationCard key={p.id} icon={connecting === p.id ? "\u23F3" : p.icon} name={p.name} desc={p.desc} connected={data.socials[p.id]} locked={p.locked} onConnect={() => toggle(p.id)} />
+          <IntegrationCard key={p.id} icon={connecting === p.id ? "\u23F3" : p.icon} name={p.name} desc={p.desc} connected={data.socials[p.id]} locked={p.locked} onConnect={() => toggle(p.id)} labelLinked={t(data, "Linked", "Conectado")} labelPro={t(data, "Pro", "Pro")} labelConnect={t(data, "Connect", "Conectar")} />
         ))}
       </div>
       <div className="mt-6"><Btn onClick={next}>{t(data, "Continue", "Siguiente")}</Btn></div>
@@ -456,7 +461,7 @@ const StepAlive = ({ data }: { data: OnboardingData }) => {
           <div className="text-5xl mb-6 animate-pulse">{icons[phase]}</div>
           <div className="text-primary text-lg font-bold mb-2">{msgs[phase]}{dots}</div>
           <div className="w-3/5 mx-auto h-1 rounded-full bg-border overflow-hidden mt-5">
-            <div className="h-full rounded-full bg-primary transition-all duration-800" style={{ width: `${(phase + 1) * 20}%` }} />
+            <div className="h-full rounded-full bg-primary transition-all duration-700" style={{ width: `${(phase + 1) * 20}%` }} />
           </div>
         </>
       ) : (
@@ -529,7 +534,7 @@ export default function OnboardingFlow() {
     <div className="w-full max-w-md mx-auto min-h-screen bg-bg-page flex flex-col font-sans">
       {/* Back button */}
       {step > 0 && step < STEPS.length - 1 && (
-        <button onClick={back} className="absolute top-12 left-4 text-text-secondary text-2xl hover:text-text-primary transition-colors z-10">
+        <button onClick={back} className="absolute top-10 left-3 w-11 h-11 flex items-center justify-center text-text-secondary text-2xl hover:text-text-primary transition-colors z-10 rounded-xl hover:bg-border/40">
           \u2190
         </button>
       )}
@@ -540,7 +545,7 @@ export default function OnboardingFlow() {
       )}
 
       {/* Content */}
-      <div ref={containerRef} className={`flex-1 overflow-y-auto ${step === 0 ? "pt-16 px-6 pb-10" : "pt-4 px-6 pb-10"}`}>
+      <div ref={containerRef} className={`flex-1 overflow-y-auto ${step === 0 ? "pt-16 px-4 sm:px-6 pb-10" : "pt-4 px-4 sm:px-6 pb-10"}`}>
         {stepMap[STEPS[step]]}
       </div>
     </div>

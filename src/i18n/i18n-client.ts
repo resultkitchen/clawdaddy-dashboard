@@ -23,23 +23,36 @@ export function applyTranslations(lang?: Lang): void {
   // Translate textContent
   document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
     const key = el.getAttribute('data-i18n');
-    if (key && translations[key]) {
-      const value = translations[key][currentLang];
-      // Support HTML content (for <strong> tags, etc.)
-      if (value.includes('<')) {
-        el.innerHTML = value;
-      } else {
-        el.textContent = value;
-      }
+    if (!key) return;
+    const entry = translations[key];
+    if (!entry) {
+      console.warn(`[i18n] Missing translation key: "${key}"`);
+      return;
+    }
+    const value = entry[currentLang] ?? entry['en'];
+    if (value == null) {
+      console.warn(`[i18n] Missing "${currentLang}" value for key: "${key}"`);
+      return;
+    }
+    // Support HTML content (for <strong> tags, etc.)
+    if (value.includes('<')) {
+      el.innerHTML = value;
+    } else {
+      el.textContent = value;
     }
   });
 
   // Translate placeholders
   document.querySelectorAll<HTMLInputElement>('[data-i18n-placeholder]').forEach((el) => {
     const key = el.getAttribute('data-i18n-placeholder');
-    if (key && translations[key]) {
-      el.placeholder = translations[key][currentLang];
+    if (!key) return;
+    const entry = translations[key];
+    if (!entry) {
+      console.warn(`[i18n] Missing translation key: "${key}"`);
+      return;
     }
+    const value = entry[currentLang] ?? entry['en'];
+    if (value != null) el.placeholder = value;
   });
 
   // Remove FOEC loading class

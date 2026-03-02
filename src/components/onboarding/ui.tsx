@@ -91,6 +91,9 @@ export const IntegrationCard = ({
   connected,
   onConnect,
   locked,
+  labelLinked = "Linked",
+  labelPro = "Pro",
+  labelConnect = "Connect",
 }: {
   icon: string;
   name: string;
@@ -98,6 +101,9 @@ export const IntegrationCard = ({
   connected?: boolean;
   onConnect?: () => void;
   locked?: boolean;
+  labelLinked?: string;
+  labelPro?: string;
+  labelConnect?: string;
 }) => (
   <div
     onClick={locked ? undefined : onConnect}
@@ -126,7 +132,7 @@ export const IntegrationCard = ({
           : "bg-primary text-white"
       }`}
     >
-      {connected ? "Linked" : locked ? "Pro" : "Connect"}
+      {connected ? labelLinked : locked ? labelPro : labelConnect}
     </div>
   </div>
 );

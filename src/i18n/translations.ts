@@ -85,9 +85,9 @@ export const translations: Record<string, Record<Lang, string>> = {
   'features.sleep.stat1': { en: '24/7', es: '24/7' },
   'features.sleep.stat1d': { en: 'Always working for you', es: 'Siempre trabajando para ti' },
   'features.sleep.stat2': { en: '60s', es: '60s' },
-  'features.sleep.stat2d': { en: 'To set up, no tech skills', es: 'Para configurar, sin conocimientos técnicos' },
+  'features.sleep.stat2d': { en: 'To set up, no tech skills', es: 'Configura sin ser técnico' },
   'features.sleep.stat3': { en: '$0', es: '$0' },
-  'features.sleep.stat3d': { en: 'Compared to a $3K/mo VA', es: 'Comparado con un asistente de $3K/mes' },
+  'features.sleep.stat3d': { en: 'Compared to a $3K/mo VA', es: 'Vs. asistente de $3K/mes' },
 
   // ── Model Tiers ──
   'models.h2': { en: 'Pick your level of support', es: 'Elige tu nivel de ayuda' },
@@ -236,6 +236,24 @@ export const translations: Record<string, Record<Lang, string>> = {
   'pricing.bigdaddy.f5': { en: 'Priority support — a real human when you need one', es: 'Soporte prioritario — un humano real cuando lo necesitas' },
   'pricing.bigdaddy.f6': { en: 'English + Spanish', es: 'Inglés + Español' },
   'pricing.bigdaddy.cta': { en: 'Get started', es: 'Comenzar' },
+
+  // ── Login ──
+  'login.title': { en: 'Welcome back', es: 'Bienvenido de vuelta' },
+  'login.sub': { en: 'Sign in to your ClawDaddy account', es: 'Inicia sesión en tu cuenta ClawDaddy' },
+  'login.tab.signin': { en: 'Sign in', es: 'Iniciar sesión' },
+  'login.tab.signup': { en: 'Sign up', es: 'Crear cuenta' },
+  'login.field.name': { en: 'Name', es: 'Nombre' },
+  'login.field.email': { en: 'Email', es: 'Email' },
+  'login.field.password': { en: 'Password', es: 'Contraseña' },
+  'login.placeholder.name': { en: 'Your name', es: 'Tu nombre' },
+  'login.placeholder.email': { en: 'you@email.com', es: 'tu@email.com' },
+  'login.placeholder.password': { en: 'At least 8 characters', es: 'Mínimo 8 caracteres' },
+  'login.btn.signin': { en: 'Sign in', es: 'Iniciar sesión' },
+  'login.btn.signup': { en: 'Create account', es: 'Crear cuenta' },
+  'login.btn.loading': { en: 'Loading...', es: 'Cargando...' },
+  'login.back': { en: 'Back to home', es: 'Volver al inicio' },
+  'login.error.fields': { en: 'Please fill in all fields.', es: 'Por favor completa todos los campos.' },
+  'login.error.api': { en: 'API not configured. Set window.__CLAWDADDY_API__ to your API URL.', es: 'API no configurada.' },
 
   // ── Footer ──
   'footer.copy': { en: '\u00A9 2026 ClawDaddy. All rights reserved.', es: '\u00A9 2026 ClawDaddy. Todos los derechos reservados.' },
