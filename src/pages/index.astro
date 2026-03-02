@@ -1,11 +1,12 @@
 ---
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
 import ModelTiers from '../components/ModelTiers.astro';
 import Quiz from '../components/Quiz.astro';
 import Pricing from '../components/Pricing.astro';
 
-const title = "ClawDaddy | Your AI Chief of Staff. In 5 Minutes.";
+const title = "ClawDaddy | Your day, handled.";
 ---
 
 <html lang="en">
@@ -17,7 +18,9 @@ const title = "ClawDaddy | Your AI Chief of Staff. In 5 Minutes.";
 		<title>{title}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+		<script is:inline>window.__CLAWDADDY_API__ = "https://api.clawdaddy.com";</script>
 
 		<!-- FOEC prevention: apply saved language before paint -->
 		<script is:inline>
@@ -32,36 +35,38 @@ const title = "ClawDaddy | Your AI Chief of Staff. In 5 Minutes.";
 
 		<style>
 			:root {
-				--primaryAccent: #F59E0B;
-				--bgDark: #0A0A0A;
+				--primary: #6C63FF;
+				--primary-light: #EEF0FF;
+				--accent: #FF8C42;
+				--accent-light: #FFF4EC;
 			}
 			body {
-				background-color: var(--bgDark);
-				font-family: 'Inter', sans-serif;
+				background-color: #FAFAFA;
+				font-family: 'Inter', system-ui, sans-serif;
 			}
-			.font-black { font-weight: 900; }
 		</style>
 	</head>
-	<body class="text-white selection:bg-[#F59E0B] selection:text-black">
+	<body class="text-text-primary selection:bg-primary/20 selection:text-text-primary">
 		<Header />
 
 		<main>
 			<Hero />
+			<Features />
 			<ModelTiers />
 			<Quiz />
 			<Pricing />
 		</main>
 
-		<footer class="py-20 bg-[#0F0F0F] border-t border-white/5">
+		<footer class="py-16 bg-white border-t border-border">
 			<div class="max-w-7xl mx-auto px-6 text-center">
-				<div class="w-12 h-12 bg-[#F59E0B] rounded-xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-[#F59E0B]/20">
-					<span class="text-black font-black text-2xl">C</span>
+				<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center mx-auto mb-6">
+					<span class="text-white font-bold text-lg">C</span>
 				</div>
-				<p class="text-zinc-500 text-sm mb-4" data-i18n="footer.copy">© 2026 ClawDaddy. All rights reserved.</p>
-				<div class="flex items-center justify-center gap-6 text-zinc-600 text-xs uppercase tracking-widest font-bold">
-					<a href="#" class="hover:text-white transition-colors" data-i18n="footer.privacy">Privacy</a>
-					<a href="#" class="hover:text-white transition-colors" data-i18n="footer.terms">Terms</a>
-					<a href="#" class="hover:text-white transition-colors" data-i18n="footer.github">GitHub</a>
+				<p class="text-text-secondary text-sm mb-4" data-i18n="footer.copy">&copy; 2026 ClawDaddy. All rights reserved.</p>
+				<div class="flex items-center justify-center gap-6 text-text-secondary text-xs font-medium">
+					<a href="#" class="hover:text-text-primary transition-colors" data-i18n="footer.privacy">Privacy</a>
+					<a href="#" class="hover:text-text-primary transition-colors" data-i18n="footer.terms">Terms</a>
+					<a href="#" class="hover:text-text-primary transition-colors" data-i18n="footer.github">GitHub</a>
 				</div>
 			</div>
 		</footer>

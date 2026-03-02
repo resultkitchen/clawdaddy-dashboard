@@ -14,8 +14,11 @@
     "url": "git+https://github.com/resultkitchen/clawdaddy-dashboard.git"
   },
   "dependencies": {
-    "astro": "5.0.0",
+    "@astrojs/react": "^4.4.2",
     "@astrojs/tailwind": "6.0.0",
+    "astro": "5.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "tailwindcss": "3.4.0"
   },
   "devDependencies": {

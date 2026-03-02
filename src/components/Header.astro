@@ -2,26 +2,26 @@
 import LanguageToggle from './LanguageToggle.astro';
 const { title = "ClawDaddy" } = Astro.props;
 ---
-<nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#0A0A0A]/80 backdrop-blur-md">
-  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-border bg-white/80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
     <div class="flex items-center gap-2">
-      <div class="w-8 h-8 bg-[#F59E0B] rounded-lg flex items-center justify-center">
-        <span class="text-black font-black text-xl">C</span>
+      <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+        <span class="text-white font-bold text-lg">C</span>
       </div>
-      <span class="text-white font-bold text-xl tracking-tight">{title}</span>
+      <span class="text-text-primary font-bold text-xl tracking-tight">{title}</span>
     </div>
 
     <div class="hidden md:flex items-center gap-6">
-      <a href="#features" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium" data-i18n="header.features">Features</a>
-      <a href="#pricing" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium" data-i18n="header.pricing">Pricing</a>
+      <a href="#features" class="text-text-secondary hover:text-text-primary transition-colors text-sm font-medium" data-i18n="header.features">Features</a>
+      <a href="#pricing" class="text-text-secondary hover:text-text-primary transition-colors text-sm font-medium" data-i18n="header.pricing">Pricing</a>
       <LanguageToggle />
-      <a href="#quiz" class="px-5 py-2.5 rounded-full bg-[#F59E0B] text-black hover:bg-[#F59E0B]/90 transition-all text-sm font-bold" data-i18n="header.cta">Meet Your Chief of Staff</a>
+      <a href="#quiz" class="px-5 py-2.5 rounded-full bg-primary text-white hover:bg-primary/90 transition-all text-sm font-bold" data-i18n="header.cta">Get started free</a>
     </div>
 
     <!-- Mobile: always show toggle + CTA -->
     <div class="flex md:hidden items-center gap-3">
       <LanguageToggle />
-      <a href="#quiz" class="px-4 py-2 rounded-full bg-[#F59E0B] text-black text-xs font-bold" data-i18n="header.cta">Meet Your Chief of Staff</a>
+      <a href="#quiz" class="px-4 py-2 rounded-full bg-primary text-white text-xs font-bold" data-i18n="header.cta">Get started free</a>
     </div>
   </div>
 </nav>

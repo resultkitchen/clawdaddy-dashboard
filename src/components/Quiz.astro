@@ -1,13 +1,13 @@
 ---
 ---
-<section id="quiz" class="py-24 bg-[#0F0F0F] border-y border-white/5">
+<section id="quiz" class="py-20 bg-bg-page border-t border-border">
   <div class="max-w-3xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight mb-4" data-i18n="quiz.h2">YOUR FREE AI PLAN</h2>
-      <p class="text-zinc-500" data-i18n="quiz.sub">5 quick questions. Personalized AI plan. Takes 30 seconds.</p>
+    <div class="text-center mb-10">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary tracking-tight mb-4" data-i18n="quiz.h2">Your free AI plan</h2>
+      <p class="text-text-secondary" data-i18n="quiz.sub">5 quick questions. Personalized AI plan. Takes 30 seconds.</p>
     </div>
 
-    <div class="bg-[#0A0A0A] border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+    <div class="bg-white border border-border rounded-2xl p-6 md:p-10 shadow-sm relative overflow-hidden">
 
       <!-- Hidden Netlify Form -->
       <form id="makeover-form" name="makeover-plan" method="POST" data-netlify="true" class="hidden">
@@ -23,24 +23,24 @@
 
       <!-- Progress bar -->
       <div class="mb-8" id="quiz-progress-wrap">
-        <div class="h-1 bg-white/5 rounded-full overflow-hidden">
-          <div id="quiz-progress-bar" class="h-full bg-[#F59E0B] rounded-full transition-all duration-500" style="width: 0%"></div>
+        <div class="h-1.5 bg-bg-page rounded-full overflow-hidden">
+          <div id="quiz-progress-bar" class="h-full bg-primary rounded-full transition-all duration-500" style="width: 0%"></div>
         </div>
       </div>
 
       <!-- Step 0: Email Capture -->
       <div id="step-0" class="quiz-step">
-        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.start">START HERE</span>
-        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.email.q">What's your email?</h3>
+        <span class="text-primary font-medium text-sm mb-2 block" data-i18n="quiz.start">Start here</span>
+        <h3 class="text-xl font-bold text-text-primary mb-6" data-i18n="quiz.email.q">What's your email?</h3>
         <div class="flex flex-col gap-4">
           <input
             type="email"
             id="quiz-email"
             placeholder="you@email.com"
             data-i18n-placeholder="quiz.email.placeholder"
-            class="w-full p-6 bg-white/5 border border-white/10 rounded-2xl text-white font-semibold focus:outline-none focus:border-[#F59E0B]/50 transition-all"
+            class="w-full p-4 bg-bg-page border border-border rounded-xl text-text-primary font-medium focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all"
           />
-          <button id="start-quiz" class="w-full p-6 bg-[#F59E0B] text-black font-bold rounded-2xl hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed" data-i18n="quiz.email.continue">
+          <button id="start-quiz" class="w-full p-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed" data-i18n="quiz.email.continue">
             Continue
           </button>
         </div>
@@ -48,9 +48,9 @@
 
       <!-- Step 1: Role -->
       <div id="step-1" class="quiz-step hidden">
-        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.step.1of5">STEP 01/05</span>
-        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.role.q">What best describes you?</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <span class="text-primary font-medium text-sm mb-2 block" data-i18n="quiz.step.1of5">Step 1 of 5</span>
+        <h3 class="text-xl font-bold text-text-primary mb-6" data-i18n="quiz.role.q">What best describes you?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <button class="quiz-opt" data-key="role" data-val="Business or side hustle" data-next="2"><span data-i18n="quiz.role.o1">I run a business or side hustle</span></button>
           <button class="quiz-opt" data-key="role" data-val="Freelance or creator" data-next="2"><span data-i18n="quiz.role.o2">I freelance or create content</span></button>
           <button class="quiz-opt" data-key="role" data-val="9-to-5 professional" data-next="2"><span data-i18n="quiz.role.o3">I work a 9-to-5</span></button>
@@ -60,9 +60,9 @@
 
       <!-- Step 2: Bottleneck -->
       <div id="step-2" class="quiz-step hidden">
-        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.step.2of5">STEP 02/05</span>
-        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.bottleneck.q">What drains your time the most?</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <span class="text-primary font-medium text-sm mb-2 block" data-i18n="quiz.step.2of5">Step 2 of 5</span>
+        <h3 class="text-xl font-bold text-text-primary mb-6" data-i18n="quiz.bottleneck.q">What drains your time the most?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <button class="quiz-opt" data-key="bottleneck" data-val="Email & messages" data-next="3"><span data-i18n="quiz.bottleneck.o1">Email & messages</span></button>
           <button class="quiz-opt" data-key="bottleneck" data-val="Research & learning" data-next="3"><span data-i18n="quiz.bottleneck.o2">Research & learning</span></button>
           <button class="quiz-opt" data-key="bottleneck" data-val="Planning & scheduling" data-next="3"><span data-i18n="quiz.bottleneck.o3">Planning & scheduling</span></button>
@@ -72,21 +72,21 @@
 
       <!-- Step 3: Hours Wasted -->
       <div id="step-3" class="quiz-step hidden">
-        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.step.3of5">STEP 03/05</span>
-        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.hours.q">How many hours a week do you lose to stuff AI could do?</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button class="quiz-opt" data-key="hoursWasted" data-val="1-5 hours" data-next="4"><span data-i18n="quiz.hours.o1">1–5 hours</span></button>
-          <button class="quiz-opt" data-key="hoursWasted" data-val="5-10 hours" data-next="4"><span data-i18n="quiz.hours.o2">5–10 hours</span></button>
-          <button class="quiz-opt" data-key="hoursWasted" data-val="10-20 hours" data-next="4"><span data-i18n="quiz.hours.o3">10–20 hours</span></button>
+        <span class="text-primary font-medium text-sm mb-2 block" data-i18n="quiz.step.3of5">Step 3 of 5</span>
+        <h3 class="text-xl font-bold text-text-primary mb-6" data-i18n="quiz.hours.q">How many hours a week do you lose to stuff AI could do?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <button class="quiz-opt" data-key="hoursWasted" data-val="1-5 hours" data-next="4"><span data-i18n="quiz.hours.o1">1-5 hours</span></button>
+          <button class="quiz-opt" data-key="hoursWasted" data-val="5-10 hours" data-next="4"><span data-i18n="quiz.hours.o2">5-10 hours</span></button>
+          <button class="quiz-opt" data-key="hoursWasted" data-val="10-20 hours" data-next="4"><span data-i18n="quiz.hours.o3">10-20 hours</span></button>
           <button class="quiz-opt" data-key="hoursWasted" data-val="20+ hours" data-next="4"><span data-i18n="quiz.hours.o4">20+ hours</span></button>
         </div>
       </div>
 
       <!-- Step 4: Spanish -->
       <div id="step-4" class="quiz-step hidden">
-        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.step.4of5">STEP 04/05</span>
-        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.spanish.q">Do you need Spanish?</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <span class="text-primary font-medium text-sm mb-2 block" data-i18n="quiz.step.4of5">Step 4 of 5</span>
+        <h3 class="text-xl font-bold text-text-primary mb-6" data-i18n="quiz.spanish.q">Do you need Spanish?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <button class="quiz-opt" data-key="spanishMarket" data-val="Yes daily" data-next="5"><span data-i18n="quiz.spanish.o1">Yes, I use it daily</span></button>
           <button class="quiz-opt" data-key="spanishMarket" data-val="Sometimes" data-next="5"><span data-i18n="quiz.spanish.o2">Sometimes</span></button>
           <button class="quiz-opt" data-key="spanishMarket" data-val="Want to expand" data-next="5"><span data-i18n="quiz.spanish.o3">I want to learn / expand</span></button>
@@ -96,9 +96,9 @@
 
       <!-- Step 5: Goal -->
       <div id="step-5" class="quiz-step hidden">
-        <span class="text-[#F59E0B] font-mono text-sm mb-2 block" data-i18n="quiz.step.5of5">STEP 05/05</span>
-        <h3 class="text-2xl font-bold text-white mb-8" data-i18n="quiz.goal.q">What would you do with 20 extra hours a week?</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <span class="text-primary font-medium text-sm mb-2 block" data-i18n="quiz.step.5of5">Step 5 of 5</span>
+        <h3 class="text-xl font-bold text-text-primary mb-6" data-i18n="quiz.goal.q">What would you do with 20 extra hours a week?</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <button class="quiz-opt" data-key="goal" data-val="Make more money" data-finish="true"><span data-i18n="quiz.goal.o1">Make more money</span></button>
           <button class="quiz-opt" data-key="goal" data-val="Actually relax" data-finish="true"><span data-i18n="quiz.goal.o2">Actually relax</span></button>
           <button class="quiz-opt" data-key="goal" data-val="Start something new" data-finish="true"><span data-i18n="quiz.goal.o3">Start something new</span></button>
@@ -108,35 +108,35 @@
 
       <!-- Loading State -->
       <div id="quiz-loading" class="quiz-step hidden text-center py-12">
-        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#F59E0B] mx-auto mb-6"></div>
-        <h3 class="text-xl font-bold text-white" data-i18n="quiz.loading">BUILDING YOUR AI PLAN...</h3>
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mx-auto mb-6"></div>
+        <h3 class="text-lg font-bold text-text-primary" data-i18n="quiz.loading">Building your AI plan...</h3>
       </div>
 
-      <!-- Success State: Personalized AI Plan -->
+      <!-- Success State -->
       <div id="quiz-success" class="quiz-step hidden py-4">
         <div class="text-center mb-8">
-          <div class="w-20 h-20 bg-[#F59E0B] rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 class="text-3xl font-black text-white mb-2" data-i18n="quiz.result.h3">YOUR AI PLAN</h3>
-          <p class="text-zinc-400" data-i18n="quiz.result.intro">Here's how ClawDaddy is about to change your life:</p>
+          <h3 class="text-2xl font-bold text-text-primary mb-2" data-i18n="quiz.result.h3">Your AI plan</h3>
+          <p class="text-text-secondary" data-i18n="quiz.result.intro">Here's how ClawDaddy will help you:</p>
         </div>
 
         <!-- Personalized recommendations -->
-        <div id="makeover-recommendations" class="space-y-4 mb-8">
+        <div id="makeover-recommendations" class="space-y-3 mb-8">
           <!-- Populated by JS -->
         </div>
 
         <!-- Recommended tier -->
         <div class="text-center mb-6">
-          <p class="text-zinc-500 text-sm mb-2" data-i18n="quiz.result.tier">We recommend:</p>
-          <span id="recommended-tier" class="inline-block px-4 py-2 rounded-full bg-[#F59E0B]/10 border border-[#F59E0B]/20 text-[#F59E0B] font-bold text-lg"></span>
+          <p class="text-text-secondary text-sm mb-2" data-i18n="quiz.result.tier">We recommend:</p>
+          <span id="recommended-tier" class="inline-block px-4 py-2 rounded-full bg-primary-light border border-primary/20 text-primary font-bold text-lg"></span>
         </div>
 
         <div class="text-center">
-          <p class="text-[#F59E0B] font-mono text-sm" data-i18n="quiz.result.confirmed">YOU'RE IN — CHECK YOUR INBOX</p>
+          <p class="text-primary font-medium text-sm" data-i18n="quiz.result.confirmed">You're in — check your inbox</p>
         </div>
       </div>
     </div>
@@ -145,10 +145,10 @@
 
 <style>
   .quiz-opt {
-    @apply w-full p-6 text-left border border-white/10 rounded-2xl text-white font-semibold transition-all hover:bg-white/5 hover:border-[#F59E0B]/50;
+    @apply w-full p-4 text-left border border-border rounded-xl text-text-primary font-medium transition-all hover:bg-primary-light hover:border-primary/30;
   }
   .rec-card {
-    @apply flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/10;
+    @apply flex items-start gap-4 p-4 rounded-xl bg-bg-page border border-border;
   }
 </style>
 
@@ -214,7 +214,7 @@
     // Role-based
     const roleMap: Record<string, Record<string, string>> = {
       'Business or side hustle': {
-        en: 'Run your thing from your phone — monitor AI agents, approve actions, stay in control without being chained to a desk.',
+        en: 'Run your business from your phone — monitor AI agents, approve actions, stay in control without being chained to a desk.',
         es: 'Maneja tu proyecto desde tu teléfono — monitorea agentes IA, aprueba acciones, mantén el control sin estar encadenado a un escritorio.'
       },
       'Freelance or creator': {
@@ -269,7 +269,7 @@
     }
 
     // Determine recommended tier
-    let tier = 'OpenClaw (Free)';
+    let tier = 'Claw ($29/mo)';
     if (needsSpanish || data.hoursWasted === '10-20 hours' || data.hoursWasted === '20+ hours') {
       tier = 'Daddy ($59/mo)';
     }
@@ -278,6 +278,29 @@
     }
 
     return { bullets, tier };
+  }
+
+  // Also submit to API if available
+  async function submitToAPI(data: QuizData) {
+    try {
+      const apiBase = (window as any).__CLAWDADDY_API__ || '';
+      if (!apiBase) return;
+      await fetch(`${apiBase}/quiz/submit`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: data.email,
+          role: data.role,
+          bottleneck: data.bottleneck,
+          hours_wasted: data.hoursWasted,
+          spanish_market: data.spanishMarket,
+          goal: data.goal,
+          language: getCurrentLang(),
+        }),
+      });
+    } catch {
+      // API submission is best-effort
+    }
   }
 
   // Email continue button
@@ -293,8 +316,8 @@
       updateProgress(1);
     } else {
       emailInput.focus();
-      emailInput.classList.add('border-red-500/50');
-      setTimeout(() => emailInput.classList.remove('border-red-500/50'), 2000);
+      emailInput.classList.add('border-red-400');
+      setTimeout(() => emailInput.classList.remove('border-red-400'), 2000);
     }
   });
 
@@ -335,19 +358,19 @@
         (document.getElementById('form-goal') as HTMLInputElement).value = quizData.goal;
         (document.getElementById('form-language') as HTMLInputElement).value = getCurrentLang();
 
+        // Submit to Netlify Forms + API in parallel
         try {
           const formData = new FormData(document.getElementById('makeover-form') as HTMLFormElement);
-          const response = await fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData as any).toString(),
-          });
-
-          if (!response.ok) {
-            console.warn('Form submission failed, status:', response.status);
-          }
+          const [_netlify] = await Promise.allSettled([
+            fetch('/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams(formData as any).toString(),
+            }),
+            submitToAPI(quizData),
+          ]);
         } catch (error) {
-          console.warn('Network error submitting form:', error);
+          console.warn('Form submission error:', error);
         } finally {
           // Generate personalized recommendations
           const { bullets, tier } = generateRecommendations(quizData);
@@ -356,12 +379,12 @@
           if (recsContainer) {
             recsContainer.innerHTML = bullets.map(b => `
               <div class="rec-card">
-                <div class="w-8 h-8 rounded-lg bg-[#F59E0B]/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#F59E0B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="w-8 h-8 rounded-lg bg-primary-light flex items-center justify-center shrink-0 mt-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <p class="text-zinc-300 text-sm leading-relaxed">${b}</p>
+                <p class="text-text-primary text-sm leading-relaxed">${b}</p>
               </div>
             `).join('');
           }

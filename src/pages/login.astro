@@ -1,0 +1,146 @@
+---
+const title = "ClawDaddy | Sign in";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+		<script is:inline>window.__CLAWDADDY_API__ = "https://api.clawdaddy.com";</script>
+		<style>
+			body {
+				background-color: #FAFAFA;
+				font-family: 'Inter', system-ui, sans-serif;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body class="text-text-primary min-h-screen flex items-center justify-center px-6">
+		<div class="w-full max-w-sm">
+			<div class="text-center mb-8">
+				<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4">
+					<span class="text-white font-bold text-2xl">C</span>
+				</div>
+				<h1 class="text-2xl font-bold text-text-primary mb-1">Welcome back</h1>
+				<p class="text-text-secondary text-sm">Sign in to your ClawDaddy account</p>
+			</div>
+
+			<div id="auth-form" class="bg-white border border-border rounded-2xl p-6 shadow-sm">
+				<!-- Tab switcher -->
+				<div class="flex mb-6 bg-bg-page rounded-xl p-1">
+					<button id="tab-login" class="flex-1 py-2.5 rounded-lg text-sm font-bold transition-all bg-white text-text-primary shadow-sm">Sign in</button>
+					<button id="tab-signup" class="flex-1 py-2.5 rounded-lg text-sm font-bold transition-all text-text-secondary">Sign up</button>
+				</div>
+
+				<div id="error-msg" class="hidden mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm"></div>
+
+				<div class="space-y-4">
+					<div id="name-field" class="hidden">
+						<label class="text-text-primary text-sm font-medium mb-1 block">Name</label>
+						<input id="name-input" type="text" placeholder="Your name" class="w-full p-3 bg-bg-page border border-border rounded-xl text-text-primary text-sm focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all" />
+					</div>
+					<div>
+						<label class="text-text-primary text-sm font-medium mb-1 block">Email</label>
+						<input id="email-input" type="email" placeholder="you@email.com" class="w-full p-3 bg-bg-page border border-border rounded-xl text-text-primary text-sm focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all" />
+					</div>
+					<div>
+						<label class="text-text-primary text-sm font-medium mb-1 block">Password</label>
+						<input id="password-input" type="password" placeholder="At least 8 characters" class="w-full p-3 bg-bg-page border border-border rounded-xl text-text-primary text-sm focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all" />
+					</div>
+					<button id="submit-btn" class="w-full py-3.5 rounded-xl bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+						Sign in
+					</button>
+				</div>
+
+				<p class="text-center text-text-secondary text-xs mt-4">
+					<a href="/" class="hover:text-primary transition-colors">Back to home</a>
+				</p>
+			</div>
+		</div>
+
+		<script is:inline>
+			const API_BASE = window.__CLAWDADDY_API__ || '';
+			let mode = 'login';
+
+			const tabLogin = document.getElementById('tab-login');
+			const tabSignup = document.getElementById('tab-signup');
+			const nameField = document.getElementById('name-field');
+			const submitBtn = document.getElementById('submit-btn');
+			const errorMsg = document.getElementById('error-msg');
+
+			function setMode(m) {
+				mode = m;
+				if (m === 'login') {
+					tabLogin.className = 'flex-1 py-2.5 rounded-lg text-sm font-bold transition-all bg-white text-text-primary shadow-sm';
+					tabSignup.className = 'flex-1 py-2.5 rounded-lg text-sm font-bold transition-all text-text-secondary';
+					nameField.classList.add('hidden');
+					submitBtn.textContent = 'Sign in';
+				} else {
+					tabSignup.className = 'flex-1 py-2.5 rounded-lg text-sm font-bold transition-all bg-white text-text-primary shadow-sm';
+					tabLogin.className = 'flex-1 py-2.5 rounded-lg text-sm font-bold transition-all text-text-secondary';
+					nameField.classList.remove('hidden');
+					submitBtn.textContent = 'Create account';
+				}
+				errorMsg.classList.add('hidden');
+			}
+
+			tabLogin.addEventListener('click', () => setMode('login'));
+			tabSignup.addEventListener('click', () => setMode('signup'));
+
+			submitBtn.addEventListener('click', async () => {
+				const email = document.getElementById('email-input').value;
+				const password = document.getElementById('password-input').value;
+				const name = document.getElementById('name-input').value;
+
+				if (!email || !password) {
+					errorMsg.textContent = 'Please fill in all fields.';
+					errorMsg.classList.remove('hidden');
+					return;
+				}
+
+				if (!API_BASE) {
+					errorMsg.textContent = 'API not configured. Set window.__CLAWDADDY_API__ to your API URL.';
+					errorMsg.classList.remove('hidden');
+					return;
+				}
+
+				submitBtn.disabled = true;
+				submitBtn.textContent = 'Loading...';
+
+				try {
+					const endpoint = mode === 'login' ? '/auth/login' : '/auth/signup';
+					const body = mode === 'login'
+						? { email, password }
+						: { email, password, name: name || undefined };
+
+					const res = await fetch(API_BASE + endpoint, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(body),
+					});
+
+					const data = await res.json();
+
+					if (!res.ok) {
+						throw new Error(data.detail || 'Something went wrong');
+					}
+
+					sessionStorage.setItem('clawdaddy_token', data.access_token);
+					sessionStorage.setItem('clawdaddy_refresh', data.refresh_token);
+					window.location.href = '/onboarding';
+				} catch (err) {
+					errorMsg.textContent = err.message;
+					errorMsg.classList.remove('hidden');
+				} finally {
+					submitBtn.disabled = false;
+					submitBtn.textContent = mode === 'login' ? 'Sign in' : 'Create account';
+				}
+			});
+		</script>
+	</body>
+</html>
