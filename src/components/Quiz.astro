@@ -121,7 +121,7 @@
             </svg>
           </div>
           <h3 class="text-2xl font-bold text-text-primary mb-2" data-i18n="quiz.result.h3">Your AI plan</h3>
-          <p class="text-text-secondary" data-i18n="quiz.result.intro">Here's how ClawDaddy will help you:</p>
+          <p class="text-text-secondary" data-i18n="quiz.result.intro">Here's how ClawGrab will help you:</p>
         </div>
 
         <!-- Personalized recommendations -->
@@ -286,7 +286,7 @@
   // Also submit to API if available
   async function submitToAPI(data: QuizData) {
     try {
-      const apiBase = (window as any).__CLAWDADDY_API__ || '';
+      const apiBase = (window as any).__CLAWGRAB_API__ || '';
       if (!apiBase) return;
       await fetch(`${apiBase}/quiz/submit`, {
         method: 'POST',

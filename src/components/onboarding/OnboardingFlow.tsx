@@ -7,7 +7,7 @@ const STEPS = [
   "social_connect", "social_voice", "soul", "comms", "boundaries", "review", "alive"
 ];
 
-const API_BASE = (typeof window !== "undefined" && (window as any).__CLAWDADDY_API__) || "";
+const API_BASE = (typeof window !== "undefined" && (window as any).__CLAWGRAB_API__) || "";
 
 // ── Step Components ──
 
@@ -19,7 +19,7 @@ const StepLang = ({ data, setData, next }: StepProps) => {
       <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
         <span className="text-white font-bold text-3xl">C</span>
       </div>
-      <h1 className="text-3xl font-bold text-text-primary mb-2">ClawDaddy</h1>
+      <h1 className="text-3xl font-bold text-text-primary mb-2">ClawGrab</h1>
       <p className="text-text-secondary text-sm mb-10">Your AI assistant. From your pocket.</p>
       <div className="flex gap-3 justify-center mb-10">
         {[{ code: "en", label: "English", flag: "\u{1F1FA}\u{1F1F8}" }, { code: "es", label: "Espa\u00F1ol", flag: "\u{1F1F2}\u{1F1FD}" }].map((l) => (
@@ -71,7 +71,7 @@ const StepBusiness = ({ data, setData, next }: StepProps) => {
     <div>
       <StepLabel text={t(data, "Step 2 of 11", "Paso 2 de 11")} />
       <StepTitle text={t(data, "Tell me about your business", "Cu\u00E9ntame de tu negocio")} />
-      <StepDesc text={t(data, "ClawDaddy adapts to your industry.", "ClawDaddy se adapta a tu industria.")} />
+      <StepDesc text={t(data, "ClawGrab adapts to your industry.", "ClawGrab se adapta a tu industria.")} />
       <Input placeholder={t(data, "Business name", "Nombre del negocio")} value={data.bizName} onChange={(v) => setData({ ...data, bizName: v })} />
       <div className="mt-5 flex flex-wrap gap-2">
         {types.map((tp) => <Chip key={tp.value} emoji={tp.emoji} label={tp.label} selected={data.bizType === tp.value} onClick={() => setData({ ...data, bizType: tp.value })} />)}
@@ -222,7 +222,7 @@ const StepSocialConnect = ({ data, setData, next }: StepProps) => {
     <div>
       <StepLabel text={t(data, "Step 6 of 11", "Paso 6 de 11")} />
       <StepTitle text={t(data, "Connect your socials", "Conecta tus redes")} />
-      <StepDesc text={t(data, "ClawDaddy becomes your voice \u2014 invisible, consistent, always on.", "ClawDaddy ser\u00E1 tu voz \u2014 invisible, consistente, siempre activo.")} />
+      <StepDesc text={t(data, "ClawGrab becomes your voice \u2014 invisible, consistent, always on.", "ClawGrab ser\u00E1 tu voz \u2014 invisible, consistente, siempre activo.")} />
       <div className="flex flex-col gap-2.5">
         {platforms.map((p) => (
           <IntegrationCard key={p.id} icon={connecting === p.id ? "\u23F3" : p.icon} name={p.name} desc={p.desc} connected={data.socials[p.id]} locked={p.locked} onConnect={() => toggle(p.id)} labelLinked={t(data, "Linked", "Conectado")} labelPro={t(data, "Pro", "Pro")} labelConnect={t(data, "Connect", "Conectar")} />
@@ -240,7 +240,7 @@ const StepSocialVoice = ({ data, setData, next }: StepProps) => (
   <div>
     <StepLabel text={t(data, "Step 7 of 11", "Paso 7 de 11")} />
     <StepTitle text={t(data, "How do you sound on social?", "\u00BFC\u00F3mo suenas en redes?")} />
-    <StepDesc text={t(data, "ClawDaddy will mirror your style. Nobody will notice.", "ClawDaddy imitar\u00E1 tu estilo. Nadie notar\u00E1 la diferencia.")} />
+    <StepDesc text={t(data, "ClawGrab will mirror your style. Nobody will notice.", "ClawGrab imitar\u00E1 tu estilo. Nadie notar\u00E1 la diferencia.")} />
     <SliderOption label={t(data, "Tone", "Tono")} value={data.socialTone}
       onChange={(v) => setData({ ...data, socialTone: v })}
       options={[
@@ -396,7 +396,7 @@ const StepReview = ({ data, next }: StepProps & { next: () => void }) => {
   return (
     <div>
       <StepLabel text={t(data, "Step 11 of 11", "Paso 11 de 11")} />
-      <StepTitle text={t(data, "Your ClawDaddy is ready", "Tu ClawDaddy est\u00E1 listo")} />
+      <StepTitle text={t(data, "Your ClawGrab is ready", "Tu ClawGrab est\u00E1 listo")} />
       <StepDesc text={t(data, "Here's what we're working with:", "Revisa tu configuraci\u00F3n:")} />
       <div className="flex flex-col gap-2.5">
         {rows.map((item, i) => (
@@ -407,7 +407,7 @@ const StepReview = ({ data, next }: StepProps & { next: () => void }) => {
         ))}
       </div>
       <div className="mt-8">
-        <Btn onClick={next}>{t(data, "Activate ClawDaddy", "Activar ClawDaddy")}</Btn>
+        <Btn onClick={next}>{t(data, "Activate ClawGrab", "Activar ClawGrab")}</Btn>
       </div>
     </div>
   );
@@ -426,7 +426,7 @@ const StepAlive = ({ data }: { data: OnboardingData }) => {
   // Send onboarding data to API
   useEffect(() => {
     if (!API_BASE) return;
-    const token = sessionStorage.getItem("clawdaddy_token");
+    const token = sessionStorage.getItem("clawgrab_token");
     if (!token) return;
     fetch(`${API_BASE}/onboarding/save`, {
       method: "POST",
@@ -450,7 +450,7 @@ const StepAlive = ({ data }: { data: OnboardingData }) => {
   }, []);
 
   const msgs = data.lang === "es"
-    ? ["Creando tu entorno privado", "Instalando cerebro de IA", "Conectando tus cuentas", "Configurando modo invisible", "Tu ClawDaddy est\u00E1 listo"]
+    ? ["Creando tu entorno privado", "Instalando cerebro de IA", "Conectando tus cuentas", "Configurando modo invisible", "Tu ClawGrab est\u00E1 listo"]
     : ["Spinning up your private environment", "Installing AI brain", "Linking your accounts", "Activating stealth mode", "You're all set!"];
   const icons = ["\u2699\u{FE0F}", "\u{1F9E0}", "\u{1F517}", "\u{1F47B}", "\u2705"];
 

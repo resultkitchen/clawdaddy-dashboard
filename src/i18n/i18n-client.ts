@@ -1,6 +1,6 @@
 import { translations, type Lang } from './translations';
 
-const STORAGE_KEY = 'clawdaddy-lang';
+const STORAGE_KEY = 'clawgrab-lang';
 
 export function getCurrentLang(): Lang {
   if (typeof window === 'undefined') return 'en';

@@ -6,7 +6,7 @@ import ModelTiers from '../components/ModelTiers.astro';
 import Quiz from '../components/Quiz.astro';
 import Pricing from '../components/Pricing.astro';
 
-const title = "ClawDaddy | Your day, handled.";
+const title = "ClawGrab | Your day, handled.";
 ---
 
 <html lang="en">
@@ -20,11 +20,11 @@ const title = "ClawDaddy | Your day, handled.";
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-		<script is:inline>window.__CLAWDADDY_API__ = "https://api.clawdaddy.com";</script>
+		<script is:inline>window.__CLAWGRAB_API__ = "https://api.clawgrab.app";</script>
 
 		<!-- FOEC prevention: apply saved language before paint -->
 		<script is:inline>
-			var lang = localStorage.getItem('clawdaddy-lang') || 'en';
+			var lang = localStorage.getItem('clawgrab-lang') || 'en';
 			document.documentElement.setAttribute('lang', lang);
 			if (lang !== 'en') document.documentElement.classList.add('i18n-loading');
 		</script>
@@ -62,7 +62,7 @@ const title = "ClawDaddy | Your day, handled.";
 				<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center mx-auto mb-6">
 					<span class="text-white font-bold text-lg">C</span>
 				</div>
-				<p class="text-text-secondary text-sm mb-4" data-i18n="footer.copy">&copy; 2026 ClawDaddy. All rights reserved.</p>
+				<p class="text-text-secondary text-sm mb-4" data-i18n="footer.copy">&copy; 2026 ClawGrab. All rights reserved.</p>
 				<div class="flex items-center justify-center gap-6 text-text-secondary text-xs font-medium">
 					<a href="#" class="hover:text-text-primary transition-colors" data-i18n="footer.privacy">Privacy</a>
 					<a href="#" class="hover:text-text-primary transition-colors" data-i18n="footer.terms">Terms</a>

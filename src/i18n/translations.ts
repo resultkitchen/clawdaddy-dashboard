@@ -31,8 +31,8 @@ export const translations: Record<string, Record<Lang, string>> = {
   'features.email.badge': { en: 'Email', es: 'Email' },
   'features.email.title': { en: 'Wake up to inbox zero, every single day', es: 'Despierta con la bandeja vacía, todos los días' },
   'features.email.desc': {
-    en: 'While you sleep, ClawDaddy reads your email, sorts what matters from what doesn\'t, drafts replies in your voice, and flags anything that needs your attention.',
-    es: 'Mientras duermes, ClawDaddy lee tu email, separa lo importante, redacta respuestas con tu voz y marca lo que necesita tu atención.'
+    en: 'While you sleep, ClawGrab reads your email, sorts what matters from what doesn\'t, drafts replies in your voice, and flags anything that needs your attention.',
+    es: 'Mientras duermes, ClawGrab lee tu email, separa lo importante, redacta respuestas con tu voz y marca lo que necesita tu atención.'
   },
   'features.email.f1': { en: 'Replies drafted in your tone, not robot-speak', es: 'Respuestas redactadas con tu tono, no como un robot' },
   'features.email.f2': { en: 'Junk filtered, important stuff surfaced', es: 'Spam filtrado, lo importante al frente' },
@@ -45,8 +45,8 @@ export const translations: Record<string, Record<Lang, string>> = {
   'features.social.badge': { en: 'Social media', es: 'Redes sociales' },
   'features.social.title': { en: 'Your social posts, written in your voice', es: 'Tus publicaciones, escritas con tu voz' },
   'features.social.desc': {
-    en: 'No more staring at a blank screen wondering what to post. ClawDaddy learns how you talk, what you care about, and creates content that sounds like you — not a marketing robot.',
-    es: 'No más mirar una pantalla en blanco sin saber qué publicar. ClawDaddy aprende cómo hablas, qué te importa y crea contenido que suena como tú — no como un robot.'
+    en: 'No more staring at a blank screen wondering what to post. ClawGrab learns how you talk, what you care about, and creates content that sounds like you — not a marketing robot.',
+    es: 'No más mirar una pantalla en blanco sin saber qué publicar. ClawGrab aprende cómo hablas, qué te importa y crea contenido que suena como tú — no como un robot.'
   },
   'features.social.f1': { en: 'Content that sounds like you, not a template', es: 'Contenido que suena como tú, no como una plantilla' },
   'features.social.f2': { en: 'Posted at the right time for maximum reach', es: 'Publicado en el momento ideal para máximo alcance' },
@@ -55,7 +55,7 @@ export const translations: Record<string, Record<Lang, string>> = {
     en: '"Just tried the new coffee spot on 5th — the oat milk latte is unreal. If you\'re in the neighborhood, trust me on this one."',
     es: '"Acabo de probar el nuevo café en la 5ta — el latte de avena es increíble. Si estás por el barrio, hazme caso."'
   },
-  'features.social.ex1d': { en: 'Written by ClawDaddy, sounds like you', es: 'Escrito por ClawDaddy, suena como tú' },
+  'features.social.ex1d': { en: 'Written by ClawGrab, sounds like you', es: 'Escrito por ClawGrab, suena como tú' },
   'features.social.tw': { en: 'Twitter', es: 'Twitter' },
   'features.social.ig': { en: 'Instagram', es: 'Instagram' },
   'features.social.li': { en: 'LinkedIn', es: 'LinkedIn' },
@@ -63,8 +63,8 @@ export const translations: Record<string, Record<Lang, string>> = {
   'features.memory.badge': { en: 'Memory', es: 'Memoria' },
   'features.memory.title': { en: 'Never forget a birthday, deadline, or detail', es: 'Nunca olvides un cumpleaños, fecha límite o detalle' },
   'features.memory.desc': {
-    en: "ClawDaddy remembers everything so you don't have to. Your mom's birthday, that follow-up you promised, the deadline that's creeping up — it's all tracked.",
-    es: 'ClawDaddy recuerda todo para que tú no tengas que hacerlo. El cumpleaños de tu mamá, ese seguimiento que prometiste, la fecha que se acerca — todo está registrado.'
+    en: "ClawGrab remembers everything so you don't have to. Your mom's birthday, that follow-up you promised, the deadline that's creeping up — it's all tracked.",
+    es: 'ClawGrab recuerda todo para que tú no tengas que hacerlo. El cumpleaños de tu mamá, ese seguimiento que prometiste, la fecha que se acerca — todo está registrado.'
   },
   'features.memory.f1': { en: 'Automatic reminders before things are due', es: 'Recordatorios automáticos antes de las fechas límite' },
   'features.memory.f2': { en: 'Follow-ups sent so you never ghost anyone', es: 'Seguimientos enviados para que nunca dejes a alguien colgado' },
@@ -79,8 +79,8 @@ export const translations: Record<string, Record<Lang, string>> = {
   'features.sleep.badge': { en: '24/7', es: '24/7' },
   'features.sleep.title': { en: 'You rest. It works.', es: 'Tú descansas. Él trabaja.' },
   'features.sleep.desc': {
-    en: "ClawDaddy doesn't take breaks or call in sick. While you're sleeping, having dinner, or just living your life — it's handling the stuff that used to pile up.",
-    es: 'ClawDaddy no toma descansos ni se reporta enfermo. Mientras duermes, cenas o simplemente vives tu vida — está manejando lo que antes se acumulaba.'
+    en: "ClawGrab doesn't take breaks or call in sick. While you're sleeping, having dinner, or just living your life — it's handling the stuff that used to pile up.",
+    es: 'ClawGrab no toma descansos ni se reporta enfermo. Mientras duermes, cenas o simplemente vives tu vida — está manejando lo que antes se acumulaba.'
   },
   'features.sleep.stat1': { en: '24/7', es: '24/7' },
   'features.sleep.stat1d': { en: 'Always working for you', es: 'Siempre trabajando para ti' },
@@ -189,8 +189,8 @@ export const translations: Record<string, Record<Lang, string>> = {
 
   'quiz.result.h3': { en: 'Your AI plan', es: 'Tu plan IA' },
   'quiz.result.intro': {
-    en: "Here's how ClawDaddy will help you:",
-    es: 'Así es como ClawDaddy te va a ayudar:'
+    en: "Here's how ClawGrab will help you:",
+    es: 'Así es como ClawGrab te va a ayudar:'
   },
   'quiz.result.tier': { en: 'We recommend:', es: 'Te recomendamos:' },
   'quiz.result.cta': { en: 'Get started free', es: 'Empieza gratis' },
@@ -199,8 +199,8 @@ export const translations: Record<string, Record<Lang, string>> = {
   // ── Pricing ──
   'pricing.h2': { en: 'Simple plans, real results', es: 'Planes simples, resultados reales' },
   'pricing.sub': {
-    en: 'A personal assistant costs $500-$3,000/month. ClawDaddy does the same work, starting at less than $1/day.',
-    es: 'Un asistente personal cuesta $500-$3,000/mes. ClawDaddy hace el mismo trabajo, desde menos de $1/día.'
+    en: 'A personal assistant costs $500-$3,000/month. ClawGrab does the same work, starting at less than $1/day.',
+    es: 'Un asistente personal cuesta $500-$3,000/mes. ClawGrab hace el mismo trabajo, desde menos de $1/día.'
   },
   'pricing.popular': { en: 'Most popular', es: 'Más popular' },
 
@@ -239,7 +239,7 @@ export const translations: Record<string, Record<Lang, string>> = {
 
   // ── Login ──
   'login.title': { en: 'Welcome back', es: 'Bienvenido de vuelta' },
-  'login.sub': { en: 'Sign in to your ClawDaddy account', es: 'Inicia sesión en tu cuenta ClawDaddy' },
+  'login.sub': { en: 'Sign in to your ClawGrab account', es: 'Inicia sesión en tu cuenta ClawGrab' },
   'login.tab.signin': { en: 'Sign in', es: 'Iniciar sesión' },
   'login.tab.signup': { en: 'Sign up', es: 'Crear cuenta' },
   'login.field.name': { en: 'Name', es: 'Nombre' },
@@ -253,10 +253,10 @@ export const translations: Record<string, Record<Lang, string>> = {
   'login.btn.loading': { en: 'Loading...', es: 'Cargando...' },
   'login.back': { en: 'Back to home', es: 'Volver al inicio' },
   'login.error.fields': { en: 'Please fill in all fields.', es: 'Por favor completa todos los campos.' },
-  'login.error.api': { en: 'API not configured. Set window.__CLAWDADDY_API__ to your API URL.', es: 'API no configurada.' },
+  'login.error.api': { en: 'API not configured. Set window.__CLAWGRAB_API__ to your API URL.', es: 'API no configurada.' },
 
   // ── Footer ──
-  'footer.copy': { en: '\u00A9 2026 ClawDaddy. All rights reserved.', es: '\u00A9 2026 ClawDaddy. Todos los derechos reservados.' },
+  'footer.copy': { en: '\u00A9 2026 ClawGrab. All rights reserved.', es: '\u00A9 2026 ClawGrab. Todos los derechos reservados.' },
   'footer.privacy': { en: 'Privacy', es: 'Privacidad' },
   'footer.terms': { en: 'Terms', es: 'Términos' },
   'footer.github': { en: 'GitHub', es: 'GitHub' },

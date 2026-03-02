@@ -1,5 +1,5 @@
 ---
-const title = "ClawDaddy | Sign in";
+const title = "ClawGrab | Sign in";
 ---
 
 <html lang="en">
@@ -11,11 +11,11 @@ const title = "ClawDaddy | Sign in";
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-		<script is:inline>window.__CLAWDADDY_API__ = "https://api.clawdaddy.com";</script>
+		<script is:inline>window.__CLAWGRAB_API__ = "https://api.clawgrab.app";</script>
 
 		<!-- FOEC prevention: apply saved language before paint -->
 		<script is:inline>
-			var lang = localStorage.getItem('clawdaddy-lang') || 'en';
+			var lang = localStorage.getItem('clawgrab-lang') || 'en';
 			document.documentElement.setAttribute('lang', lang);
 			if (lang !== 'en') document.documentElement.classList.add('i18n-loading');
 		</script>
@@ -38,7 +38,7 @@ const title = "ClawDaddy | Sign in";
 					<span class="text-white font-bold text-2xl">C</span>
 				</div>
 				<h1 class="text-2xl font-bold text-text-primary mb-1" data-i18n="login.title">Welcome back</h1>
-				<p class="text-text-secondary text-sm" data-i18n="login.sub">Sign in to your ClawDaddy account</p>
+				<p class="text-text-secondary text-sm" data-i18n="login.sub">Sign in to your ClawGrab account</p>
 			</div>
 
 			<div id="auth-form" class="bg-white border border-border rounded-2xl p-6 shadow-sm">
@@ -78,7 +78,7 @@ const title = "ClawDaddy | Sign in";
 			import { getCurrentLang, applyTranslations } from '../i18n/i18n-client';
 			import { translations } from '../i18n/translations';
 
-			const API_BASE = (window as any).__CLAWDADDY_API__ || '';
+			const API_BASE = (window as any).__CLAWGRAB_API__ || '';
 			let mode = 'login';
 
 			const tabLogin = document.getElementById('tab-login') as HTMLButtonElement;
@@ -153,8 +153,8 @@ const title = "ClawDaddy | Sign in";
 						throw new Error(data.detail || 'Something went wrong');
 					}
 
-					sessionStorage.setItem('clawdaddy_token', data.access_token);
-					sessionStorage.setItem('clawdaddy_refresh', data.refresh_token);
+					sessionStorage.setItem('clawgrab_token', data.access_token);
+					sessionStorage.setItem('clawgrab_refresh', data.refresh_token);
 					window.location.href = '/onboarding';
 				} catch (err: any) {
 					errorMsg.textContent = err.message;
